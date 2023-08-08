@@ -1,0 +1,79 @@
+.main-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    background: var(--laranja);
+    color: var(--preto);
+    padding: 2em 12em 2em 12em;
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+}
+
+.footer__div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.footer__titulos {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.footer__lista-termo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: underline;
+    gap: 0.5em;
+}
+
+
+.footer__lista-termo .footer__item__link {
+    color: var(--preto);
+}
+
+.footer__lista-redes {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.footer__lista-redes .footer__item {
+    text-decoration: none;
+    color: var(--preto);
+}
+
+.footer__lista-atendimento {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.container2__div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.logo__footer {
+    width: 124px;
+    height: 24px;
+}
+
+.footer__texto {
+    font-weight: 500;
+}
+
