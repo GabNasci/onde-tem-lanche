@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onde Tem Lanche?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="vh-100" style="font-family: 'Montserrat';">
+    <header class="header fixed-top" style="margin-top: -1px;">
+        <nav class="navbar navbar-expand-lg" style="background-color: #EA9F30;" data-bs-theme="dark">
+            <div class="container-fluid px-md-5">
+                <a class="navbar-brand p-0 m-0" href="#">
+                    <img class="logo" src="/img/Logos/ondetemlanchelogo.svg" title="logo onde tem lanche?"
+                        alt="logo onde tem lanche?" style="margin-right: 13vw;" />
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <img src="img/SVG/menu_hamburguer.svg" class="navbar-toggler-icon" alt="">
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel" style="background-color: #EA9F30; width: 12em;">
+                    <div class="offcanvas-header justify-content-end">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body gap-2">
+                        <ul class="navbar-nav float justify-content-center flex-grow-1 gap-4 mb-4 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark " href="estabelecimento.html">Indicação</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark " href="busca.html">Busca</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex flex-column flex-md-row gap-2">
+                            <button type="button text-dark" class="btn btn-outline-light px-3">Fazer Cadastro</button>
+                            <button type="button" class="btn btn-light px-5">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="d-flex flex-column gap-4" style="margin-top: 5rem;">
+
+        <section class="container d-flex flex-column gap-2">
+
+            <section class=" d-flex d-md-none justify-content-center w-100">
+                <a href="busca.html" class="btn active w-100">Lista</a>
+                <a href="mapa.html" class="btn w-100">Mapa</a>
+            </section>
+
+            <section class="d-flex flex-column justify-content-center align-items-center gap-">
+                <h2 class="fs-5 fw-bold d-none d-lg-block" style="font-family:'sub-destaque';">E aí! Tá em busca do
+                    que
+                    hoje?</h2>
+                <div class="border p-2 rounded-pill w-sm-100" style="width: 80vw;">
+                    <div class="d-flex justify-content-between">
+                        <input type="search" name="busca" id="" placeholder="pizza de calabresa..." class="border-0"
+                            style="outline: none;" />
+                        <button href="#" class="px-1 border-0 bg-transparent" style="color: #707070;">
+                            <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="d-none d-lg-flex flex-wrap justify-content-center gap-2">
+                <div class="">
+                    <a href="#" class="">
+                        <img src="/img/Filters/filtro_pizza.svg" alt="ícone de pizza" class="" style="width: 40px;" />
+                    </a>
+                </div>
+                <div class="">
+                    <a href="#" class="">
+                        <img src="/img/Filters/filtro_burger.svg" alt="ícone de hamburguer" class=""
+                            style="width: 40px;" />
+                    </a>
+                </div>
+                <div class="">
+                    <a href="#" class="">
+                        <img src="/img/Filters/filtro_dog.svg" alt="ícone de hot dog" class="" style="width: 40px;" />
+                    </a>
+                </div>
+                <div class="">
+                    <a href="#" class="">
+                        <img src="/img/Filters/filtro_porcao.svg" alt="ícone de porção" class="" style="width: 40px;" />
+                    </a>
+                </div>
+                <div class="">
+                    <a href="#" class="">
+                        <img src="/img/Filters/filtro_veg.svg"
+                            alt="ícone de folha para representar a categoria vegetariana" class=""
+                            style="width: 40px;" />
+                    </a>
+                </div>
+                <div class="">
+                    <a href="#" class="">
+                        <img src="/img/Filters/filtro_gluten.svg"
+                            alt="ícone de trigo para representar a categoria sem gluten" class=""
+                            style="width: 40px;" />
+                    </a>
+                </div>
+                <div class="">
+                    <a href="#" class="">
+                        <img src="/img/Filters/filtro_musica.svg"
+                            alt="ícone de violão para representar a categoria música ao vivo" class=""
+                            style="width: 40px;" />
+                    </a>
+                </div>
+                <div class="">
+                    <a href="#" class="">
+                        <img src="/img/Filters/filtro_drink.svg"
+                            alt="ícone de taças para representar a categoria drinks" class="" style="width: 40px;" />
+                    </a>
+                </div>
+            </section>
+        </section>
+
+
+        <section class="d-flex flex-column gap-2">
+
+            <section class="container d-none d-md-flex justify-content-center w-100">
+                <a href="busca.html" class="btn active w-100">Lista</a>
+                <a href="mapa.html" class="btn w-100">Mapa</a>
+            </section>
+
+
+            <section class="container d-flex justify-content-end gap-2">
+                <select class="form-select rounded-pill" aria-label="Default select example" style="width: 10em;">
+                    <option selected>Ordenar</option>
+                    <option value="1">Abertos</option>
+                    <option value="2">A-Z</option>
+                </select>
+            </section>
+
+            <section class="container d-flex flex-column justify-content-center gap-4">
+
+                <div class="card rounded-4">
+                    <div class="d-flex">
+                      <div class="col-3 col-md-2 p-2">
+                        <img src="/img/Logos/pizza-chef.svg" class="card-img img-fluid rounded-4 border border-2" alt="..."
+                          style="width: 100%;">
+                      </div>
+                      <div class="col-md-10">
+                        <div class="card-body d-flex row gap-2 p-0 px-0 px-md-2 py-2">
+                          <div class="d-flex gap-2">
+                            <h5 class="card-title m-0 fw-bold fs-4">Pizza Chef</h5>
+                            <div class="d-none d-lg-flex gap-2">
+                              <img src="img/Filters/filtro_pizza.svg" style="width: 1.5em;">
+                              <img src="img/Filters/filtro_veg.svg" style="width: 1.5em;">
+                              <img src="img/Filters/filtro_musica.svg" style="width: 1.5em;">
+                            </div>
+                          </div>
+                          <div>
+                            <h6 class="card-subtitle fs-5 text-secondary d-lg-none">Pizzaria</h5>
+                          </div>
+                          <div class="d-none d-lg-block">
+                            <h7 class="card-subtitle fw-bold">Descrição do estabelecimento</h7>
+                            <p class="card-text .d-sm-none .d-md-block">Pizza Chef, uma pizzaria em
+                              Campo Mourão que encanta com sabores autênticos. Massa crocante, ingredientes frescos e um
+                              ambiente aconchegante. Uma explosão de delícias para os amantes da pizza. Uma experiência
+                              gastronômica que vai além das expectativas.</p>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex gap-4">
+                              <div class="d-flex gap-2 align-items-center">
+                                <i class="fa-regular fa-clock"></i>
+                                <p class="card-text fw-bold">19:00 - 23:00</p>
+                              </div>
+                              <div class="d-none d-lg-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="card-text fw-bold">Av. Irmãos Pereira, 44444, Centro</p>
+                              </div>
+                              <div class="d-none d-lg-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-phone"></i>
+                                <p class="card-text fw-bold">(44) 91234-1234</p>
+                              </div>
+                            </div>
+                            <a href="#"
+                              class="btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1 me-1">
+                              <i class="fa-solid fa-utensils fs-6"></i>
+                              <p class="card-text fs-6">ver mais</p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="card rounded-4">
+                    <div class="d-flex">
+                      <div class="col-3 col-md-2 p-2 ">
+                        <img src="/img/Logos/fauget.svg" class="card-img img-fluid rounded-4 border border-2" alt="..."
+                          style="width: 100%;">
+                      </div>
+                      <div class="col-md-10">
+                        <div class="card-body d-flex row gap-2 p-0 px-0 px-md-2 py-2">
+                          <div class="d-flex gap-2">
+                            <h5 class="card-title m-0 fw-bold fs-4">Fauget</h5>
+                            <div class="d-none d-lg-flex gap-2">
+                              <img src="img/Filters/filtro_pizza.svg" style="width: 1.5em;">
+                              <img src="img/Filters/filtro_veg.svg" style="width: 1.5em;">
+                              <img src="img/Filters/filtro_musica.svg" style="width: 1.5em;">
+                            </div>
+                          </div>
+                          <div>
+                            <h6 class="card-subtitle fs-5 text-secondary d-lg-none">Restaurante</h5>
+                          </div>
+                          <div class="d-none d-lg-block">
+                            <h7 class="card-subtitle fw-bold">Descrição do estabelecimento</h7>
+                            <p class="card-text .d-sm-none .d-md-block">Descubra o Fauget: o destino gastronômico em Campo Mourão!
+                              Sabores únicos, ambiente sofisticado e uma experiência inesquecível na culinária contemporânea. Aqui
+                              você encontrará uma atmosfera elegante e acolhedora, perfeita para encontros românticos ou jantares em
+                              família. Venha encantar-se conosco e desfrute de uma explosão de sabores incríveis!</p>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex gap-4">
+                              <div class="d-flex gap-2 align-items-center">
+                                <i class="fa-regular fa-clock"></i>
+                                <p class="card-text fw-bold">11:00 - 13:30</p>
+                              </div>
+                              <div class="d-none d-lg-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="card-text fw-bold">Av. Cândido Mendes, 89756, Centro</p>
+                              </div>
+                              <div class="d-none d-lg-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-phone"></i>
+                                <p class="card-text fw-bold">(44) 99963-3524</p>
+                              </div>
+                            </div>
+                            <a href="#"
+                              class="btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1 me-1">
+                              <i class="fa-solid fa-utensils fs-6"></i>
+                              <p class="card-text fs-6">ver mais</p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="card rounded-4">
+                    <div class="d-flex">
+                      <div class="col-3 col-md-2 p-2">
+                        <img src="/img/Logos/borcelle.svg" class="card-img img-fluid rounded-4 border border-2" alt="..."
+                          style="width: 100%;">
+                      </div>
+                      <div class="col-md-10">
+                        <div class="card-body d-flex row gap-2 p-0 px-0 px-md-2 py-2">
+                          <div class="d-flex gap-2">
+                            <h5 class="card-title m-0 fw-bold fs-4">Borcelle</h5>
+                            <div class="d-none d-lg-flex gap-2">
+                              <img src="img/Filters/filtro_pizza.svg" style="width: 1.5em;">
+                              <img src="img/Filters/filtro_veg.svg" style="width: 1.5em;">
+                              <img src="img/Filters/filtro_musica.svg" style="width: 1.5em;">
+                            </div>
+                          </div>
+                          <div class="">
+                            <h6 class="card-subtitle fs-5 text-secondary d-lg-none">Petiscaria</h5>
+                          </div>
+                          <div class="d-none d-lg-block">
+                            <h7 class="card-subtitle fw-bold">Descrição do estabelecimento</h7>
+                            <p class="card-text .d-sm-none .d-md-block">Somos um estabelecimento especializado em porções deliciosas
+                              e oferecemos uma experiência gastronômica única para os amantes de petiscos e pratos compartilháveis.
+                              Localizado em um charmoso ponto da cidade, nosso restaurante é o lugar perfeito para se reunir com
+                              amigos e familiares em busca de uma refeição descontraída e saborosa.</p>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex gap-4">
+                              <div class="d-flex gap-2 align-items-center">
+                                <i class="fa-regular fa-clock"></i>
+                                <p class="card-text fw-bold">19:00 - 23:00</p>
+                              </div>
+                              <div class="d-none d-lg-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="card-text fw-bold">Av. Irmãos Pereira, 44444, Centro</p>
+                              </div>
+                              <div class="d-none d-lg-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-phone"></i>
+                                <p class="card-text fw-bold">(44) 91234-1234</p>
+                              </div>
+                            </div>
+                            <a href="#"
+                              class="btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1 me-1">
+                              <i class="fa-solid fa-utensils fs-6"></i>
+                              <p class="card-text fs-6">ver mais</p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="card rounded-4">
+                    <div class="d-flex">
+                      <div class="col-3 col-md-2">
+                        <img src="/img/Logos/pizza-chef.svg" class="card-img img-fluid rounded-4 p-2" alt="..."
+                          style="width: 100%;">
+                      </div>
+                      <div class="col-md-10">
+                        <div class="card-body d-flex row gap-2 p-0 px-0 px-md-2 py-2">
+                          <div class="d-flex gap-2">
+                            <h5 class="card-title m-0 fw-bold fs-4">Pizza Chef</h5>
+                            <div class="d-none d-lg-flex gap-2">
+                              <img src="img/Filters/filtro_pizza.svg" style="width: 1.5em;">
+                              <img src="img/Filters/filtro_veg.svg" style="width: 1.5em;">
+                              <img src="img/Filters/filtro_musica.svg" style="width: 1.5em;">
+                            </div>
+                          </div>
+                          <div>
+                            <h6 class="card-subtitle fs-5 text-secondary d-lg-none">Pizzaria</h5>
+                          </div>
+                          <div class="d-none d-lg-block">
+                            <h7 class="card-subtitle fw-bold">Descrição do estabelecimento</h7>
+                            <p class="card-text .d-sm-none .d-md-block">Pizza Chef, uma pizzaria em
+                              Campo Mourão que encanta com sabores autênticos. Massa crocante, ingredientes frescos e um
+                              ambiente aconchegante. Uma explosão de delícias para os amantes da pizza. Uma experiência
+                              gastronômica que vai além das expectativas.</p>
+                          </div>
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex gap-4">
+                              <div class="d-flex gap-2 align-items-center">
+                                <i class="fa-regular fa-clock"></i>
+                                <p class="card-text fw-bold">19:00 - 23:00</p>
+                              </div>
+                              <div class="d-none d-lg-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <p class="card-text fw-bold">Av. Irmãos Pereira, 44444, Centro</p>
+                              </div>
+                              <div class="d-none d-lg-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-phone"></i>
+                                <p class="card-text fw-bold">(44) 91234-1234</p>
+                              </div>
+                            </div>
+                            <a href="#"
+                              class="btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1 me-1">
+                              <i class="fa-solid fa-utensils fs-6"></i>
+                              <p class="card-text fs-6">ver mais</p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+
+
+
+            </section>
+
+        </section>
+
+
+        <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4"
+            style="background-color: #131313; margin-bottom: -1px;">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
+                        href="index.html">
+                        <img src="img/Icons/Home.svg" alt="">
+                        <p class="fs-6 m-0" style="color: #FFFFFF;">Home</p>
+                    </a>
+                </div>
+                <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -60px;">
+                    <a class="text-decoration-none p-0 m-0" href="estabelecimento.html">
+                        <img src="img/Icons/Indicacao.png" alt="" style="width: 72px;">
+                    </a>
+                </div>
+                <div>
+                    <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
+                        href="busca.html">
+                        <img src="img/Icons/Pesquisa-active.svg" alt="">
+                        <p class="fs-6 m-0" style="color: #EA9F30;">Busca</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/b3b83db5db.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

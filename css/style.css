@@ -1,28 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
-@import url("reset.css");
-@import url("header.css");
-@import url("footer.css");
-@import url("formulario.css");
-/* @import url("redefinicao-senha-1.css");
-@import url("redefinicao-senha-2.css");
-@import url("cadastro.css"); */
-@import url("perfil.css");
 
-:root {
-    --laranja: #EA9F30;
-    --cinza-escuro: #707070;
-    --cinza-claro: #A8A8A8;
-    --preto: #000000;
-    --branco: #FFFF;
+@font-face {
+  font-family: sub-destaque;
+  src:url(/fonts/nexa.ttf);
+  }
+  
+  @font-face {
+  font-family: destaque;
+  src:url(/fonts/stretch-pro.otf);
+  }
+
+#map {
+  height: 500px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.categorias::-webkit-scrollbar {
+  display: none; /* Chrome e Opera*/
 }
 
-main {
-    margin-bottom: 100px;
+.categorias {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
