@@ -26,4 +26,7 @@
   scrollbar-width: none;  /* Firefox */
 }
 
-
+body {
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
