@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="vh-100" style="font-family: 'Montserrat';">
+<body class="vh-100">
   <header class="header fixed-top" style="margin-top: -1px;">
     <nav class="navbar navbar-expand-lg" style="background-color: #EA9F30;" data-bs-theme="dark">
       <div class="container-fluid px-md-5">
@@ -40,8 +40,8 @@
               </li>
             </ul>
             <div class="d-flex flex-column flex-md-row gap-2">
-              <button type="button text-dark" class="btn btn-outline-light px-3">Fazer Cadastro</button>
-              <button type="button" class="btn btn-light px-5">Login</button>
+              <a href="cadastro.html" class="btn btn-outline-light px-3 m-0">Fazer Cadastro</a>
+              <a href="login.html" class="btn btn-light px-5 m-0">Login</a>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
       </section>
 
       <section class="d-flex flex-column justify-content-center align-items-center gap-">
-        <h2 class="fs-5 fw-bold d-none d-lg-block" style="font-family:'sub-destaque';">E aí! Tá em busca do
+        <h2 class="fs-5 fw-bold d-none d-md-block" style="font-family:'sub-destaque';">E aí! Tá em busca do
           que
           hoje?</h2>
         <div class="border p-2 rounded-pill w-sm-100" style="width: 80vw;">
@@ -74,7 +74,13 @@
         </div>
       </section>
 
-      <section class="d-none d-lg-flex flex-wrap justify-content-center gap-2">
+      <section class=" container d-flex w-100 justify-content-center align-items-center gap-2 d-md-none">
+        <hr class="border border-3 opacity-100 w-100" style="color: #707070">
+        <h3 class="fs-5" style="color: #707070;">Categorias</h3>
+        <hr class="border border-3 opacity-100 w-100" style="color: #707070">
+      </section>
+
+      <section class="d-flex justify-content-md-center gap-1 categorias" style="max-width: 100vw; overflow-x: scroll;">
         <div class="">
           <a href="#" class="">
             <img src="/img/Filters/filtro_pizza.svg" alt="ícone de pizza" class="" style="width: 40px;" />
@@ -123,11 +129,22 @@
     </section>
 
 
-    <section class="d-flex flex-column gap-2">
+    <section class="d-flex flex-column gap-2 gap-md-4">
 
       <section class="container d-none d-md-flex justify-content-center w-100">
         <a href="busca.html" class="btn active w-100">Lista</a>
         <a href="mapa.html" class="btn w-100">Mapa</a>
+      </section>
+
+      <section class="d-none container d-lg-flex align-items-center gap-2">
+        <h4 class="px-2 fw-bold m-0"
+          style="background-color: #EA9F30; font-family: 'destaque'; min-width: fit-content;">Todos os restaurantes</h4>
+        <hr class="border border-3 opacity-100 w-100" style="color: #707070;">
+      </section>
+
+      <section class="d-lg-none container d-flex align-items-center gap-2">
+        <h4 class="px-2 fw-bold m-0" style="background-color: #EA9F30; font-family: 'destaque';">Restaurantes</h4>
+        <hr class="border border-3 opacity-100 w-100" style="color: #707070; ">
       </section>
 
 
@@ -422,7 +439,7 @@
         </div>
         <div class="d-flex flex-column align-items-center align-items-lg-start gap-2 m-0 me-lg-5">
           <h6 class="m-0 fw-bold fs-5">Documentos</h6>
-          <ul class="d-flex flex-column align-items-center align-items-lg-start m-0 p-0">
+          <ul class="d-flex flex-column align-items-center align-items-lg-start m-0 p-0 me-lg-5">
             <a href="#" class="link-dark">Termos e condições de uso</a>
             <a href="#" class="link-dark">Privacidade do usuário</a>
           </ul>
