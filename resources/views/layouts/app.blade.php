@@ -122,14 +122,14 @@
                                     @endif
                                 @else
 
-                                    <div>
+
                                         <!--<a class="header__mensagem-bem-vindo" href="{{ route('user') }}">Bem-vindo, {{ Auth::user()->name }}! <span style="margin-left: 3px;"><img alt="avatar" src="{{ asset('images/avatar.png') }}" style=" width: 19%; height: 50px;"/></span></a>-->
                                         <?php
                                         $nomeExploded = explode(" ", Auth::user()->name);
                                         ?>
                                         <a href="{{ route('user') }}" class="text-decoration-none text-dark px-3 m-0">Bem vindo, {{isset($nomeExploded[0]) ? $nomeExploded[0] : Auth::user()->name}}!</a>
                                         <img src="{{ asset('images/' . Auth::user()->avatar)}}" class="rounded-circle img-fluid object-fit-cover" alt="" style="height: 50px;width: 50px;">
-                                    </div>
+
 
                                     <div>
                                         <a class="header__botao-logout" href="{{ route('logout') }}"
