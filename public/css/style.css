@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+@font-face {
+  font-family: sub-destaque;
+  src:url(/fonts/nexa.ttf);
+  }
+  
+  @font-face {
+  font-family: destaque;
+  src:url(/fonts/stretch-pro.otf);
+  }
+
+#map {
+  height: 500px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.categorias::-webkit-scrollbar {
+  display: none; /* Chrome e Opera*/
+}
+
+.categorias {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body {
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
