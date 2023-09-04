@@ -127,8 +127,8 @@
                                         <?php
                                         $nomeExploded = explode(" ", Auth::user()->name);
                                         ?>
-                                        <a href="{{ route('user') }}" class="text-decoration-none text-dark px-3 m-0">Bem vindo, {{isset($nomeExploded[0]) ? $nomeExploded[0] : Auth::user()->name}}!</a>
-                                        <img src="{{ asset('images/' . Auth::user()->avatar)}}" class="rounded-circle img-fluid object-fit-cover" alt="" style="height: 50px;width: 50px;">
+                                        <a href="{{ route('user') }}" class="text-decoration-none text-dark m-0">Bem vindo, {{isset($nomeExploded[0]) ? $nomeExploded[0] : Auth::user()->name}}!</a>
+                                        <img src="{{ isset($user->avatar) ? : asset('/images/Avatars/avatar.png')  }}" class="rounded-circle img-fluid object-fit-cover" alt="" style="height: 50px;width: 50px;">
 
 
                                     <div>

@@ -7,14 +7,16 @@
                 {{ session('status') }}
             </div>
         @endif
-        <div class="perfil">
             <div class="container d-flex justify-content-center flex-column gap-3 align-items-center">
                 <h1 class="text-center fs-2 fw-bold">Meu perfil</h1>
                 <div class="d-flex flex-column justify-content-center align-items-center gap-1">
-                    <img class="rounded-circle img-fluid object-fit-cover" src="{{ isset($user->avatar) ? asset('/images/Avatars/desktop_perfil_foto.png') : asset('/images/Avatars/avatar.png')  }}"
+                    <img class="rounded-circle img-fluid object-fit-cover" src="{{ isset($user->avatar) ? : asset('/images/Avatars/avatar.png')  }}"
                          style="height: 154px; width: 154px;">
                 </div>
-                <h1 class="fs-3 m-0 fw-bold">Olá, Henrique</h1>
+                <?php
+                $nomeExploded = explode(" ", Auth::user()->name);
+                ?>
+                <h1 class="fs-3 m-0 fw-bold">Olá, {{isset($nomeExploded[0]) ? $nomeExploded[0] : Auth::user()->name}}</h1>
                 <div class="d-flex flex-column justify-content-center align-items-center gap-1">
                     <p class="fs-5 m-0 fw-bold">Nome completo:</p>
                     <p class="p-0 m-0">{{ $user->name }}</p>
@@ -28,15 +30,14 @@
                     <p class="p-0 m-0">{{ $user->telephone }}</p>
                 </div>
 
-                <!-- Botão para abrir o pop-up -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Alterar informações
                 </button>
             </div>
 
             <!-- Janela de pop-up -->
-            <section class="alterar-perfil">
-                <!--<div class="alterar-perfil__pop-up">
+            <!--<section class="alterar-perfil">
+                <div class="alterar-perfil__pop-up">
                     <hr/>
                     <form method="POST" action="{{ route('user.update') }}" class="alterar-perfil__pop-up__formulario">
                         @method('PUT')
@@ -158,20 +159,8 @@
                     </div>
                 </div>
             </section>
-        </div>
         @endsection
         @section('scripts')
-            <script>
-                const modal = document.querySelector('.alterar-perfil__pop-up')
-
-                function abrirJanela() {
-                    modal.classList.add('ativar')
-                }
-
-                function fecharJanela() {
-                    modal.classList.remove('ativar')
-                }
-            </script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
                 <script src="https://kit.fontawesome.com/b3b83db5db.js" crossorigin="anonymous"></script>
 @endsection

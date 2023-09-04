@@ -53,53 +53,6 @@
                             <button type="button" data-bs-target="#carouselExample1" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         </div>
                         @foreach($events as $key => $event)
-                        <!--<div class="carousel-item {{ $key === 0 ? 'active' : ''}}">
-                            <div class="card rounded-4 shadow">
-                                <div class="row ">
-                                    <div class="col-lg-6">
-                                        <img src="{{ asset('images/'.$event->foto) }}" class="card-img img-fluid object-fit-cover h-100 rounded-top-md-4" alt="...">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card-body d-flex row gap-4 p-0 px-2 py-2">
-                                            <h5 class="card-title m-0 fw-bold fs-4">{{ $event->titulo }}</h5>
-                                            <div class="d-flex gap-4">
-                                                <div class="d-flex gap-2 align-items-center">
-                                                    <i class="fa-regular fa-calendar fs-6"></i>
-                                                    <p class="card-text">{{ $event->data->format('d/m') }}</p>
-                                                </div>
-                                                <div class="d-flex gap-2 align-items-center">
-                                                    <i class="fa-regular fa-clock fs-6"></i>
-                                                    <p class="card-text">{{ $event->data->format('H:i') }}</p>
-                                                </div>
-                                                <div class="d-flex gap-2 align-items-center">
-                                                    <i class="fa-solid fa-location-dot fs-6"></i>
-                                                    <p class="card-text">{{ $event->establishment->nome }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="d-none d-md-block">
-                                                <h5 class="card-subtitle fs-5"><strong>Descrição do evento</strong></h5>
-                                                <p class="card-text">{{ $event->descricao }}</p>
-                                            </div>
-                                            <div class="d-flex justify-content-center gap-4">
-                                                <a href="#" class="btn btn-primary text-dark border-0 d-flex align-items-center gap-2" style="background-color:#7DD3EE;">
-                                                    <i class="fa-solid fa-circle-info fs-5"></i>
-                                                    <p class="card-text fs-6">
-                                                        Página do evento
-                                                    </p>
-                                                </a>
-                                                <a href="{{ 'https://wa.me/'.$event->establishment->whatsapp }}" class="btn btn-primary text-dark border-0 d-flex align-items-center gap-2" style="background-color:#25D366 ;">
-                                                    <i class="fa-brands fa-whatsapp fs-5"></i>
-                                                    <p class="card-text fs-6">
-                                                        <Atendimento></Atendimento>
-                                                    </p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
-
                             <div class="carousel-item {{ $key === 0 ? 'active' : ''}}">
                                 <div class="card rounded-4">
                                     <div class="row ">
