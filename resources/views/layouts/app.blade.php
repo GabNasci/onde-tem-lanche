@@ -151,7 +151,7 @@
         </header>
 
 
-        <main class="py-4">
+        <main>
             @include('flash-message')
             @yield('content')
         </main>

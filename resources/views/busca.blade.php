@@ -89,39 +89,36 @@
                                 <div class="col-md-10">
                                     <div class="card-body d-flex row gap-2 p-0 px-0 px-md-2 py-2">
                                         <div class="d-flex gap-2">
-                                            <h5 class="card-title m-0 fw-bold fs-4">Pizza Chef</h5>
+                                            <h5 class="card-title m-0 fw-bold fs-4">{{$establishment->nome}}</h5>
                                             <div class="d-none d-lg-flex gap-2">
-                                                <img src="img/Filters/filtro_pizza.svg" style="width: 1.5em;">
-                                                <img src="img/Filters/filtro_veg.svg" style="width: 1.5em;">
-                                                <img src="img/Filters/filtro_musica.svg" style="width: 1.5em;">
+                                                @foreach($establishment->categories as $categoryPivot)
+                                                    <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 1.5em;">
+                                                @endforeach
                                             </div>
                                         </div>
                                         <div>
-                                            <h6 class="card-subtitle fs-5 text-secondary d-lg-none">Pizzaria</h5>
+                                            <h6 class="card-subtitle fs-5 text-secondary d-lg-none">{{$establishment->tipo}}</h5>
                                         </div>
                                         <div class="d-none d-lg-block">
                                             <h7 class="card-subtitle fw-bold">Descrição do estabelecimento</h7>
-                                            <p class="card-text .d-sm-none .d-md-block">Pizza Chef, uma pizzaria em
-                                                Campo Mourão que encanta com sabores autênticos. Massa crocante, ingredientes frescos e um
-                                                ambiente aconchegante. Uma explosão de delícias para os amantes da pizza. Uma experiência
-                                                gastronômica que vai além das expectativas.</p>
+                                            <p class="card-text .d-sm-none .d-md-block">{{$establishment->descricao}}</p>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <div class="d-flex gap-4">
                                                 <div class="d-flex gap-2 align-items-center">
                                                     <i class="fa-regular fa-clock"></i>
-                                                    <p class="card-text fw-bold">19:00 - 23:00</p>
+                                                <p class="card-text fw-bold">{{$establishment->horario_inicial . "-" . $establishment->horario_final}}</p>
                                                 </div>
                                                 <div class="d-none d-lg-flex gap-2 align-items-center">
                                                     <i class="fa-solid fa-location-dot"></i>
-                                                    <p class="card-text fw-bold">Av. Irmãos Pereira, 44444, Centro</p>
+                                                    <p class="card-text fw-bold">{{$establishment->logradouro . ", " . $establishment->numero . ", " . $establishment->bairro}}</p>
                                                 </div>
                                                 <div class="d-none d-lg-flex gap-2 align-items-center">
                                                     <i class="fa-solid fa-phone"></i>
-                                                    <p class="card-text fw-bold">(44) 91234-1234</p>
+                                                    <p class="card-text fw-bold">{{$establishment->whatsapp}}</p>
                                                 </div>
                                             </div>
-                                            <a href="#"
+                                            <a href="{{ url('/estabelecimentos/' . $establishment->id ) }}"
                                                class="btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1 me-1">
                                                 <i class="fa-solid fa-utensils fs-6"></i>
                                                 <p class="card-text fs-6">ver mais</p>

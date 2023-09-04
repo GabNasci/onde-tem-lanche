@@ -117,10 +117,10 @@
     </main>-->
 
     <main style="margin-top: 112px;">
-        <form method="POST" action="{{ route('register') }}" class="container d-flex flex-column gap-4 align-items-center">
+        <form method="POST" action="{{ route('register') }}" class="container text-center d-flex flex-column gap-4 align-items-center">
             @csrf
             <h1 class="text-center fw-bold fs-2">Legal! Vamos criar sua conta.</h1>
-            <div class="form-outline text-center d-flex flex-column gap-3" style="width: 300px;">
+            <div class="d-flex flex-column gap-4">
                 <div>
                     <label type="text" for="name" class="form-label fs-5" for="form2Example1">Qual seu nome completo?</label>
                     <input id="name"

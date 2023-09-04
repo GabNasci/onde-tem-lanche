@@ -46,7 +46,7 @@
             </section>
 
             <section class="container d-flex justify-content-center">
-                <div id="carouselExample1" class="carousel slide carousel-dark" data-bs-ride="carousel">
+                <div id="carouselExampleEvent" class="carousel slide carousel-dark" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-indicators d-none m-0">
                             <button type="button" data-bs-target="#carouselExample1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -109,13 +109,13 @@
 
 
                     </div>
-                    <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#carouselExample1"
+                    <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#carouselExampleEvent"
                             data-bs-slide="prev"
                             style="background-color: #D9D9D9; width: 6vh; height: 6vh; border-radius: 50%; top: 50%; transform: translateY(-50%); transform: translateX(-140%);">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next d-none d-md-block" type="button" data-bs-target="#carouselExample1"
+                    <button class="carousel-control-next d-none d-md-block" type="button" data-bs-target="#carouselExampleEvent"
                             data-bs-slide="next"
                             style="background-color: #D9D9D9; width: 6vh; height: 6vh; border-radius: 50%; top: 50%; transform: translateY(-50%); transform: translateX(140%);">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -130,14 +130,14 @@
                     <h4 class="fs-5 fw-bold">Recomendados para hoje</h4>
                 </section>
 
-                <section class="container justify-content-center d-flex gap-4">
+                <section class="container justify-content-center d-flex gap-4 flex-wrap">
                     @foreach($establishments as $key => $establishment)
 
                     <div class="card rounded-4 shadow h-100" style="width: 25rem;">
                         <div id="carouselExample{{$key}}" class="carousel slide card-img-top ">
                             <div class="carousel-inner rounded-top-4">
                                 @foreach($establishment->banners as $i => $banner)
-                                <div class="carousel-item {{ $key === 0 ? 'active' : '' }} ">
+                                <div class="carousel-item {{ $i === 0 ? 'active' : ''}}">
                                     <img src="{{ asset('images/'.$banner->imagem) }}" class="d-block w-100 img-fluid object-fit-cover" alt="..." style="height: 12em;">
                                 </div>
                                 @endforeach
@@ -183,11 +183,11 @@
                 <h4 class="fs-5 fw-bold">Em promoção hoje!</h4>
             </section>
 
-            <section class="container justify-content-center d-flex gap-4">
-                @foreach($establishments as $establishment)
+            <section class="container justify-content-center d-flex gap-4 flex-wrap">
+                @foreach($establishments as $key => $establishment)
                     @foreach($establishment->products as $product)
                     <div class="card rounded-4 shadow h-100" style="width: 25rem;">
-                        <div id="carouselExample2" class="carousel slide card-img-top ">
+                        <div id="carousel{{$key}}" class="carousel slide card-img-top ">
                             <div class="carousel-inner rounded-top-4">
                                 @foreach($product->images as $imageProduct)
                                 <div class="carousel-item active ">
@@ -196,11 +196,11 @@
                                 @endforeach
 
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
@@ -211,7 +211,6 @@
 {{--                            </div>--}}
                             <div class="d-flex row gap-2">
                                 <h5 class="card-title fw-bold m-0">{{ $product->nome_produto }}</h5>
-                                <h6 class="card-subtitle fs-5 text-secondary">Restaurante</h6>
                                 <div class="d-grid gap-2 d-flex justify-content-between">
                                     <div class="d-flex gap-2">
                                         <img src="{{ asset('images/Filters/filtro_porcao.svg') }}" alt="..." style="width: 1.5em;">

@@ -15,27 +15,27 @@
             </div>
             <div class="d-flex">
                 <div class="col-4 col-md-2 p-2">
-                    <img src="/img/Logos/pizza-chef.svg" class="card-img img-fluid rounded-4 border border-2" alt="..."
+                    <img src="{{asset('images/' . $establishment->imagem_logo)}}" class="card-img img-fluid rounded-4 border border-2" alt="..."
                          style="width: 100%;">
                 </div>
                 <div class="col-md-10">
                     <div class="d-flex flex-column gap-2 p-0 px-0 px-md-2 py-2" style="max-height: 176.4px;">
                         <div class="d-flex flex-column flex-md-row gap-2 justify-content-md-between">
                             <div class="d-flex gap-2">
-                                <h5 class="card-title m-0 fw-bold fs-4">Pizza Chef</h5>
+                                <h5 class="card-title m-0 fw-bold fs-4">{{$establishment->nome}}</h5>
                                 <ul class="d-none list-unstyled d-md-flex p-0 m-0 justify-content-center align-items-end gap-2">
                                     <li>
-                                        <a href="#" class="text-decoration-none link-dark">
+                                        <a href="{{$establishment->instagram}}" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-instagram fs-4"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-decoration-none link-dark">
+                                        <a href="{{$establishment->facebook}}" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-square-facebook fs-4"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" class="text-decoration-none link-dark">
+                                        <a href="{{$establishment->whatsapp}}" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-whatsapp fs-4"></i>
                                         </a>
                                     </li>
@@ -45,15 +45,15 @@
                                 <div class="d-flex gap-4">
                                     <div class="d-flex gap-2 align-items-center">
                                         <i class="fa-regular fa-clock"></i>
-                                        <p class="card-text fw-bold">19:00 - 23:00</p>
+                                        <p class="card-text fw-bold">{{$establishment->horario_inicial . "-" . $establishment->horario_final}}</p>
                                     </div>
                                     <div class="d-none d-lg-flex gap-2 align-items-center">
                                         <i class="fa-solid fa-location-dot"></i>
-                                        <p class="card-text fw-bold">Av. Irmãos Pereira, 44444, Centro</p>
+                                        <p class="card-text fw-bold">{{$establishment->logradouro . ", " . $establishment->numero . ", " . $establishment->bairro}}</p>
                                     </div>
                                     <div class="d-none d-lg-flex gap-2 align-items-center">
                                         <i class="fa-solid fa-phone"></i>
-                                        <p class="card-text fw-bold">(44) 91234-1234</p>
+                                        <p class="card-text fw-bold">{{$establishment->whatsapp}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -61,15 +61,12 @@
                         </div>
                         <div class="d-none d-lg-block">
                             <h7 class="card-subtitle fw-bold">Descrição do estabelecimento</h7>
-                            <p class="card-text .d-sm-none .d-md-block">Pizza Chef, uma pizzaria em
-                                Campo Mourão que encanta com sabores autênticos. Massa crocante, ingredientes frescos e um
-                                ambiente aconchegante. Uma explosão de delícias para os amantes da pizza. Uma experiência
-                                gastronômica que vai além das expectativas.</p>
+                            <p class="card-text .d-sm-none .d-md-block">{{$establishment->descricao}}</p>
                         </div>
                         <div class=" d-lg-flex gap-2">
-                            <img src="img/Filters/filtro_pizza.svg" style="width: 28px;">
-                            <img src="img/Filters/filtro_veg.svg" style="width: 28px;">
-                            <img src="img/Filters/filtro_musica.svg" style="width: 28px;">
+                            @foreach($establishment->categories as $categoryPivot)
+                                <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 1.5em;">
+                            @endforeach
                         </div>
                     </div>
                 </div>
