@@ -1,15 +1,52 @@
 @extends('layouts.app')
 @section('content')
-        <main class="d-flex flex-column gap-md-4" style="margin-top: 56px;">
+        <main class="d-flex flex-column gap-md-4" style="margin-top: 50px;">
 
         <section class="px-0 px-md-5">
             <div class="position-relative d-flex justify-content-end align-items-end">
-                <a href="#"
-                   class="position-absolute btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1 me-1"
-                   style="background: rgba(0, 0, 0, 0.50);">
+                <!-- Button trigger modal -->
+                <button type="button"
+                        class="position-absolute btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1 me-1"
+                        style="background: rgba(0, 0, 0, 0.50);" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="fa-solid fa-image"></i>
                     <p class="card-text text-decoration-underline fs-6">ver fotos</p>
-                </a>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content d-flex flex-column justify-content-between" style="height: 550px;">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Fotos</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="tab-content" id="myTabContent">
+                                    @foreach($establishment->banners as $i => $banner)
+                                        <div class="tab-pane {{ $i === 0 ? 'active' : ''}} " id="{{$i + 1}}-tab-pane"
+                                             role="tabpanel" aria-labelledby="{{$i + 1}}-tab" tabindex="0">
+                                            <p>{{$i + 1 . "/" . $establishment->banners->count()}}</p>
+                                            <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover w-100" alt="" style="height: 220px">
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="modal-footer p-0 justify-content-center">
+                                <ul class="nav nav-underline list-unstyled" id="myTab" role="tablist">
+                                    @foreach($establishment->banners as $i => $banner)
+                                        <li class="nav-item">
+                                            <a href="#{{$i + 1}}" class="nav-link link-underline-opacity-100 {{ $i === 0 ? 'active' : ''}}" id="{{$i + 1}}-tab" data-bs-toggle="tab"
+                                               data-bs-target="#{{$i + 1}}-tab-pane" type="button" role="tab" aria-controls="{{$i + 1}}-tab-pane"
+                                               aria-selected="true" style="color: #EA9F30;">
+                                                <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover" alt="" style="width: 64px; height: 64px;">
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <img src="{{ asset('images/'.$establishment->banners()->where('is_destaque', true)->first()->imagem)}}" class="w-100 img-fluid object-fit-cover" alt=""
                      style="height: 10rem;">
             </div>
@@ -65,7 +102,7 @@
                         </div>
                         <div class=" d-lg-flex gap-2">
                             @foreach($establishment->categories as $categoryPivot)
-                                <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 1.5em;">
+                                <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 32px;">
                             @endforeach
                         </div>
                     </div>
@@ -281,7 +318,7 @@
                 <section class="container justify-content-center d-flex flex-column">
 
                     <section class="container d-flex">
-                        <h4 class="fs-4 fw-bold">{{ $value->tipo }}</h4>
+                        <h4 class="fs-4 fw-bold" style="color: #707070">{{ $value->tipo }}</h4>
                     </section>
 
                     <section class="container p-0 justify-content-start d-flex gap-4 flex-wrap">
@@ -294,8 +331,8 @@
                             <div class="card-body d-flex justify-content-between align-items-center gap-1 p-2">
                                 <div class="d-flex flex-column justify-content-between ">
                                     <div class="d-flex gap-2">
-                                        <a href="produto.html" class="text-decoration-none text-dark">
-                                            <h5 class="card-title fw-bold m-0">{{ $product->nome_produto }}</h5>
+                                        <a href="{{ url('/produto/' . $product->id ) }}" class="text-decoration-none text-dark">
+                                            <h5 class="card-title fw-bold ">{{ $product->nome_produto }}</h5>
                                         </a>
 
     {{--                                    <div class="d-flex gap-2 align-items-start">--}}
@@ -303,15 +340,15 @@
     {{--                                        <img src="/img/Filters/filtro_veg.svg" alt="..." style="width: 1.5em;">--}}
     {{--                                    </div>--}}
                                     </div>
-                                    <div class="gap-2 d-flex">
+                                    <div class="d-flex gap-2">
                                         <p class="btn btn-dark border-0 px-1 py-1 fs-6 fw-bold m-0"
                                            style="background-color: #00A023;">
                                             R${{ number_format($product->preco, 2, ',', '.') }}
                                         </p>
-                                        <p class="btn btn-dark border-0 fs-6 fw-bold px-1 py-1 m-0"
-                                           style="background-color: #0084A0;">
-                                            Em promoção!
-                                        </p>
+{{--                                        <p class="btn btn-dark border-0 fs-6 fw-bold px-1 py-1 m-0"--}}
+{{--                                           style="background-color: #0084A0;">--}}
+{{--                                            Em promoção!--}}
+{{--                                        </p>--}}
                                     </div>
                                 </div>
                                 <div>

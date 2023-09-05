@@ -138,8 +138,9 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="card rounded-4">
-                        <p>Não há resultados.</p>
+                    <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
+                        <img src="images/SVG/prato_vazio.svg" alt="" style="width: 256px;">
+                        <h1 class="fw-bold" style="color: #707070;">Não há resultados</h1>
                     </div>
                 @endif
 

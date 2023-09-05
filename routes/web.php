@@ -36,6 +36,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/busca', [SearchController::class, 'index'])->name('busca');
 Route::get('/mapa', [SearchController::class, 'mapa'])->name('mapa');
 Route::get('/estabelecimentos/{establishment}', [EstablishmentController::class, 'show'])->name('estabelecimentos.show');
+Route::get('/produto/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('produtos.show');
 
 
 Route::get('/politica-de-privacidade', [DocumentosController::class, 'privacy'])->name('politica-de-privacidade');
