@@ -37,11 +37,11 @@
             <section class="d-flex justify-content-md-center gap-1 categorias" style="max-width: 100vw; overflow-x: scroll;">
                 @foreach($categories as $category)
                     <div class="">
-                        <a href="#" class="">
+                        <a href="{{ url('/busca?categoryId='.$category->id) }}" class="">
                             <img
                                 src="{{ asset('images/'.$category->icone) }}"
                                 alt="{{ $category->nome }}"
-                                class=""
+                                class="category_icon"
                                 style="width: 40px;"/>
                         </a>
                     </div>
@@ -70,10 +70,18 @@
 
 
             <section class="container d-flex justify-content-end gap-2">
-                <select class="form-select rounded-pill" aria-label="Default select example" style="width: 10em;">
+                <select class="form-select rounded-pill" aria-label="Default select example" style="width: 10em;" onchange="location = this.value;">
+                    <?php
+
+                    $ids = [];
+                    foreach($establishments as $establishment) {
+                        $ids[] =  $establishment->id;
+                    }
+                    $ids = implode(",", $ids);
+                    ?>
                     <option selected>Ordenar</option>
-                    <option value="1">Abertos</option>
-                    <option value="2">A-Z</option>
+                    <option value="{{ url('/busca?ordenacao=asc&ids='.$ids) }}">A-Z</option>
+                    <option value="{{ url('/busca?ordenacao=desc&ids='.$ids) }}">Z-A</option>
                 </select>
             </section>
 
@@ -97,7 +105,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            <h6 class="card-subtitle fs-5 text-secondary d-lg-none">{{$establishment->tipo}}</h5>
+                                            <h6 class="card-subtitle fs-5 text-secondary d-lg-none">{{$establishment->tipo}}</h6>
                                         </div>
                                         <div class="d-none d-lg-block">
                                             <h7 class="card-subtitle fw-bold">Descrição do estabelecimento</h7>
@@ -107,7 +115,7 @@
                                             <div class="d-flex gap-4">
                                                 <div class="d-flex gap-2 align-items-center">
                                                     <i class="fa-regular fa-clock"></i>
-                                                <p class="card-text fw-bold">{{$establishment->horario_inicial . "-" . $establishment->horario_final}}</p>
+                                                <p class="card-text fw-bold">{{$establishment->horario_inicial->format('H:i') . "-" . $establishment->horario_final->format('H:i')}}</p>
                                                 </div>
                                                 <div class="d-none d-lg-flex gap-2 align-items-center">
                                                     <i class="fa-solid fa-location-dot"></i>
@@ -167,3 +175,11 @@
         </section>
     </main>
 @endsection
+@section('scripts')
+<script>
+    $('.category_icon').on ('click', function () {
+            //https://stackoverflow.com/questions/47120188/background-color-on-active-icon
+    });
+</script>
+
+    @endsection

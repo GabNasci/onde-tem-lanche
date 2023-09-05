@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('cidade_estado');
             $table->time('horario_inicial');
             $table->time('horario_final');
+            $table->string('site')->nullable();
+            $table->string('email')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('instagram')->nullable();
             $table->string('facebook')->nullable();

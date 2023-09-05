@@ -27,7 +27,7 @@
                 <section class="d-flex justify-content-md-center gap-1 categorias" style="max-width: 100vw; overflow-x: scroll;">
                     @foreach($categories as $category)
                         <div class="">
-                            <a href="#" class="">
+                            <a href="{{ url('/busca?categoryId='.$category->id) }}" class="">
                                 <img
                                     src="{{ asset('images/'.$category->icone) }}"
                                     alt="{{ $category->nome }}"

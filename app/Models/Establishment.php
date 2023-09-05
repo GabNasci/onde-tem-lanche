@@ -12,6 +12,11 @@ class Establishment extends Model
 
     protected $table = 'establishments';
 
+    protected $dates = [
+        'horario_inicial',
+        'horario_final'
+    ];
+
     public function events()
     {
         return $this->hasMany(Event::class, 'establishment_id', 'id');

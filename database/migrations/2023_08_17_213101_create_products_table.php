@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('establishment_id');
             $table->foreign('establishment_id')->references('id')->on('establishments');
             $table->string('nome_produto');
+            $table->string('tipo');
             $table->decimal('preco', 5);
             $table->timestamps();
         });

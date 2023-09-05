@@ -23,18 +23,21 @@ class ProductSeeder extends Seeder
         Product::create([
             'establishment_id' =>$establishment->id,
             'nome_produto' => 'Rúcula com Tomate Seco',
+            'tipo' => 'Pizza de 8 pedaços',
             'preco' => 25.00
         ]);
 
         Product::create([
             'establishment_id' =>$establishment->id,
             'nome_produto' => 'Margherita',
+            'tipo'=> 'Pizza de 12 pedaços',
             'preco' => 22.50
         ]);
 
         Product::create([
             'establishment_id' =>$establishment->id,
             'nome_produto' => 'Pepperoni',
+            'tipo'=> 'Pizza de 12 pedaços',
             'preco' => 24.50
         ]);
     }

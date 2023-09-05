@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $categories = Category::all();
-    $events = Event::query()->limit(5)->get();
+    $events = Event::query()->limit(3)->get();
     $establishments = Establishment::all();
 
     return view('welcome')->with(compact(['categories', 'events', 'establishments']));

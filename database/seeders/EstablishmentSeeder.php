@@ -27,9 +27,11 @@ class EstablishmentSeeder extends Seeder
             'cidade_estado' => 'Campo Mourão - PR',
             'horario_inicial' => '19:00',
             'horario_final' => '23:00',
+            'site' => 'https://www.grupointegrado.br/?keyword&creative&gad=1&gclid=Cj0KCQjwgNanBhDUARIsAAeIcAvWtaQhvgZ7-m0KsXpGlDWX3b70iBeX8K-c-3MZ3s2UYcNnudv4SQsaAgdEEALw_wcB',
+            'email' => 'atendimentopizzacheff@gmail.com',
             'whatsapp' => '44912341234',
             'instagram' => 'https://www.instagram.com/integradouniversitario/',
-            'facebook' => null,
+            'facebook' => null
         ]);
 
         Establishment::create([
@@ -44,6 +46,7 @@ class EstablishmentSeeder extends Seeder
             'cidade_estado' => 'Campo Mourão - PR',
             'horario_inicial' => '19:00',
             'horario_final' => '23:00',
+            'site' => 'https://www.grupointegrado.br/?keyword&creative&gad=1&gclid=Cj0KCQjwgNanBhDUARIsAAeIcAvWtaQhvgZ7-m0KsXpGlDWX3b70iBeX8K-c-3MZ3s2UYcNnudv4SQsaAgdEEALw_wcB',
             'whatsapp' => '44998878542',
             'instagram' => 'https://www.instagram.com/integradouniversitario/',
             'facebook' => '',
@@ -61,6 +64,7 @@ class EstablishmentSeeder extends Seeder
             'cidade_estado' => 'Campo Mourão - PR',
             'horario_inicial' => '11:00',
             'horario_final' => '13:30',
+            'site' => 'https://www.grupointegrado.br/?keyword&creative&gad=1&gclid=Cj0KCQjwgNanBhDUARIsAAeIcAvWtaQhvgZ7-m0KsXpGlDWX3b70iBeX8K-c-3MZ3s2UYcNnudv4SQsaAgdEEALw_wcB',
             'whatsapp' => '44999633524',
             'instagram' => 'https://www.instagram.com/integradouniversitario/',
             'facebook' => '',
