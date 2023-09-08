@@ -49,6 +49,8 @@ class EstablishmentController extends Controller
      */
     public function show(Establishment $establishment)
     {
+
+
         return view('estabelecimento')->with(compact(['establishment']));
     }
 

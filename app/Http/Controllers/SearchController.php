@@ -50,6 +50,8 @@ class SearchController extends Controller
         return view('busca')->with(compact(['categories', 'establishments']));
     }
 
+
+
     public function mapa() {
         return view('mapa');
     }

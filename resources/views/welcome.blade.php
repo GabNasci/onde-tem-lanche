@@ -164,9 +164,9 @@
                                         <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 1.5em;">
                                         @endforeach
                                     </div>
-                                    <a href="{{ url('/estabelecimentos/' . $establishment->id ) }}" class="btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1">
-                                        <i class="fa-solid fa-utensils fs-6"></i>
-                                        <p class="card-text fs-6">ver mais</p>
+                                        <a href="{{ url('/estabelecimentos/' . $establishment->id ) }}" class="btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1">
+                                            <i class="fa-solid fa-utensils fs-6"></i>
+                                            <p class="card-text fs-6">ver mais</p>
                                     </a>
                                 </div>
                             </div>

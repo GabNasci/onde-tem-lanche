@@ -36,17 +36,19 @@
 
             <section class="d-flex justify-content-md-center gap-1 categorias" style="max-width: 100vw; overflow-x: scroll;">
                 @foreach($categories as $category)
-                    <div class="">
-                            <a href="{{$category->selecionada ? route('busca') : url('/busca?categoryId='.$category->id) }}">
-                                <img
-                                    src="{{ asset('images/'.$category->icone) }}"
-                                    alt="{{ $category->nome }}"
-                                    class="category_icon"
-                                    style="width: 40px;"/>
-                            </a>
-
-
+                    <div class="category-item">
+                        <a href="{{route('busca') . '?categories[]=' . $category->id}}"
+                           class="category-link"
+                           data-checked="{{ $category->selecionada ? 'true' : 'false' }}">
+                            <img
+                                src="{{ asset('images/'.$category->icone) }}"
+                                alt="{{ $category->nome }}"
+                                class="category_icon"
+                                style="width: 40px;"/>
+                            <label for="{{$category->id}}">{{ $category->nome }}</label>
+                        </a>
                     </div>
+
                 @endforeach
 
             </section>

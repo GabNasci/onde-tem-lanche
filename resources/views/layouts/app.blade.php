@@ -105,7 +105,7 @@
                                     <a class="nav-link text-dark" aria-current="page" href="{{ url('/') }}">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark " href="{{ url('/indicacao') }}">Indicação</a>
+                                    <a class="nav-link text-dark " href="{{ url('/indicacao')}}">Indicação</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark " href="{{ url('/busca') }}">Busca</a>
