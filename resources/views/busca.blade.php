@@ -37,15 +37,18 @@
             <section class="d-flex justify-content-md-center gap-1 categorias" style="max-width: 100vw; overflow-x: scroll;">
                 @foreach($categories as $category)
                     <div class="">
-                        <a href="{{ url('/busca?categoryId='.$category->id) }}" class="">
-                            <img
-                                src="{{ asset('images/'.$category->icone) }}"
-                                alt="{{ $category->nome }}"
-                                class="category_icon"
-                                style="width: 40px;"/>
-                        </a>
+                            <a href="{{$category->selecionada ? route('busca') : url('/busca?categoryId='.$category->id) }}">
+                                <img
+                                    src="{{ asset('images/'.$category->icone) }}"
+                                    alt="{{ $category->nome }}"
+                                    class="category_icon"
+                                    style="width: 40px;"/>
+                            </a>
+
+
                     </div>
                 @endforeach
+
             </section>
         </section>
 
@@ -178,9 +181,7 @@
 @endsection
 @section('scripts')
 <script>
-    $('.category_icon').on ('click', function () {
-            //https://stackoverflow.com/questions/47120188/background-color-on-active-icon
-    });
+
 </script>
 
     @endsection

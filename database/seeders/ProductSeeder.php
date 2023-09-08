@@ -24,6 +24,7 @@ class ProductSeeder extends Seeder
             'establishment_id' =>$establishment->id,
             'nome_produto' => 'Rúcula com Tomate Seco',
             'tipo' => 'Pizza de 8 pedaços',
+            'promocional' => 'Em promoção!',
             'descricao' => 'Uma clássica pizza italiana com uma base de molho de tomate, queijo mussarela, folhas frescas de rúcula orgânica, tomates secos e um fio de azeite de oliva.',
             'preco' => 25.00
         ]);
@@ -32,6 +33,7 @@ class ProductSeeder extends Seeder
             'establishment_id' =>$establishment->id,
             'nome_produto' => 'Margherita',
             'tipo'=> 'Pizza de 12 pedaços',
+            'promocional' => null,
             'descricao' => 'Uma clássica pizza italiana com uma base de molho de tomate, queijo mussarela, folhas frescas de rúcula orgânica, tomates secos e um fio de azeite de oliva.',
             'preco' => 22.50
         ]);
@@ -40,6 +42,7 @@ class ProductSeeder extends Seeder
             'establishment_id' =>$establishment->id,
             'nome_produto' => 'Pepperoni',
             'tipo'=> 'Pizza de 12 pedaços',
+            'promocional' => 'Em promoção!',
             'descricao' => 'Uma clássica pizza italiana com uma base de molho de tomate, queijo mussarela, folhas frescas de rúcula orgânica, tomates secos e um fio de azeite de oliva.',
             'preco' => 24.50
         ]);

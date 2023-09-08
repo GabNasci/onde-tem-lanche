@@ -29,6 +29,13 @@ class SearchController extends Controller
                 }
 
                 $establishments = Establishment::query()->whereIn('id', $idsEstabelecimentosArray)->get();
+
+                foreach ($categories as $category) {
+                    if ($category->id == $paramCategoryId) {
+                        $category->icone = $category->icone_selecionado;
+                        $category->selecionada = true;
+                    }
+                }
             }
         }
 

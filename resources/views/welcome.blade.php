@@ -177,60 +177,76 @@
                 </section>
             </section>
 
-            <section class="container justify-content-center d-flex flex-column">
+            @foreach($establishments as $key => $establishment)
+                @foreach($establishment->products()->distinct()->whereNotNull('promocional')->get(['promocional']) as $value)
+                    <section class="container justify-content-center d-flex flex-column">
+                        <section class="container d-flex">
+                            <h4 class="fs-5 fw-bold">{{ $value->promocional }}</h4>
+                        </section>
+                        <section class="container justify-content-center d-flex gap-4 flex-wrap">
+                            @foreach($establishment->products()->where('promocional', $value->promocional)->get() as $product)
+                                    <div class="card rounded-4 shadow h-100" style="min-width: 398px;">
+                                        <div class="card-body d-flex gap-2 p-2">
+                                            <div>
+                                                <img src="{{ asset('images/'.$establishment->imagem_logo) }}" alt=""
+                                                     class="card-img object-fit-cover border border-secondary rounded-4" style="width: 5.5em;">
+                                            </div>
+                                            <div class="d-flex flex-column gap-2 w-100">
+                                                <div class="d-flex justify-content-between">
+                                                    <h5 class="card-title fw-bold m-0">{{ $establishment->nome }}</h5>
+                                                    <div class="d-flex gap-2">
+                                                        @foreach($establishment->categories as $categoryPivot)
+                                                            <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 1.5em;">
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                                <h5 class="card-subtitle fs-5 text-secondary">{{ $establishment->tipo }}</h5>
+                                            </div>
+                                        </div>
+                                        <div id="carousel{{$key}}" class="carousel slide card-img-top ">
+                                            <div class="carousel-inner">
+                                                @foreach($product->images as $imageProduct)
+                                                    <div class="carousel-item active ">
+                                                        <img src="{{ asset('images/'.$imageProduct->imagem) }}" class="d-block w-100 img-fluid object-fit-cover" alt="..." style="height: 12em;">
+                                                    </div>
+                                                @endforeach
 
-            <section class="container d-flex">
-                <h4 class="fs-5 fw-bold">Em promoção hoje!</h4>
-            </section>
 
-            <section class="container justify-content-center d-flex gap-4 flex-wrap">
-                @foreach($establishments as $key => $establishment)
-                    @foreach($establishment->products as $product)
-                    <div class="card rounded-4 shadow h-100" style="width: 25rem;">
-                        <div id="carousel{{$key}}" class="carousel slide card-img-top ">
-                            <div class="carousel-inner rounded-top-4">
-                                @foreach($product->images as $imageProduct)
-                                <div class="carousel-item active ">
-                                    <img src="{{ asset('images/'.$imageProduct->imagem) }}" class="d-block w-100 img-fluid object-fit-cover" alt="..." style="height: 12em;">
-                                </div>
-                                @endforeach
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="card-body d-flex justify-content-between align-items-center gap-1 p-2">
+                                            <div class="d-flex justify-content-between w-100">
+                                                <a href="{{ url('/produto/' . $product->id ) }}" class="text-decoration-none text-dark">
+                                                    <h5 class="card-title fw-bold m-0">{{ $product->nome_produto }}</h5>
+                                                    <p>{{$product->tipo}}</p>
 
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div class="card-body d-flex gap-2 p-2">
-{{--                            <div>--}}
-{{--                                <img src="{{ asset('images/Logos/fauget.svg') }}" alt="" class="card-img object-fit-cover border border-secondary rounded-4" style="width: 5.5em;">--}}
-{{--                            </div>--}}
-                            <div class="d-flex row gap-2">
-                                <h5 class="card-title fw-bold m-0">{{ $product->nome_produto }}</h5>
-                                <div class="d-grid gap-2 d-flex justify-content-between">
-                                    <div class="d-flex gap-2">
-                                        <img src="{{ asset('images/Filters/filtro_porcao.svg') }}" alt="..." style="width: 1.5em;">
-                                        <img src="{{ asset('images/Filters/filtro_veg.svg') }}" alt="..." style="width: 1.5em;">
+                                                </a>
+                                                <p class="btn btn-dark border-0 px-1 py-1 fs-6 fw-bold m-0" style="background-color: #00A023; height: 32px;">
+                                                    R${{ number_format($product->preco, 2, ',', '.') }}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <a href="#" class="btn btn-dark border-0 d-flex align-items-center gap-2 justify-content-center px-2 py-1">
-                                        <i class="fa-solid fa-utensils fs-6"></i>
-                                        <p class="card-text fs-6">ver mais</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-
-                    @endforeach
+                                @endforeach
+                        </section>
+                    </section>
+                @endforeach
+            @endforeach
 
 
-            </section>
 
-        </section>
+
+
+
+
+
         </main>
     @endsection

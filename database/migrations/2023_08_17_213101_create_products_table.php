@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('establishment_id')->references('id')->on('establishments');
             $table->string('nome_produto');
             $table->string('tipo');
+            $table->string('promocional')->nullable();
             $table->longText('descricao');
             $table->decimal('preco', 5);
             $table->timestamps();
