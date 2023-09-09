@@ -56,23 +56,23 @@
                          style="width: 100%;">
                 </div>
                 <div class="col-md-10">
-                    <div class="d-flex flex-column gap-2 p-0 px-0 px-md-2 py-2" style="max-height: 176.4px;">
+                    <div class="d-flex flex-column gap-2 gap-lg-3 p-0 px-0 px-md-2 py-2" style="max-height: 176.4px;">
                         <div class="d-flex flex-column flex-md-row gap-2 justify-content-md-between">
                             <div class="d-flex gap-2">
                                 <h5 class="card-title m-0 fw-bold fs-4">{{$establishment->nome}}</h5>
                                 <ul class="d-none list-unstyled d-md-flex p-0 m-0 justify-content-center align-items-end gap-2">
                                     <li>
-                                        <a href="{{$establishment->instagram}}" class="text-decoration-none link-dark">
+                                        <a href="{{$establishment->instagram}}" target="_blank" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-instagram fs-4"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{$establishment->facebook}}" class="text-decoration-none link-dark">
+                                        <a href="{{$establishment->facebook}}" target="_blank" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-square-facebook fs-4"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{$establishment->whatsapp}}" class="text-decoration-none link-dark">
+                                        <a href="{{ 'https://wa.me/'.$establishment->whatsapp }}" target="_blank" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-whatsapp fs-4"></i>
                                         </a>
                                     </li>
@@ -121,7 +121,7 @@
                         <i class="fa-solid fa-earth-americas" style="font-size: 2em;"></i>
                         <div class="d-flex">
                             <p class="p-0 m-0">Site</p>
-                            <img src="images/Icons/arrow.svg" alt="" class="" style="width: 0.7em;">
+                            <img src="{{asset('images/Icons/arrow.svg')}}" alt="" class="" style="width: 0.7em;">
                         </div>
                     </a>
                 </div>
@@ -132,7 +132,7 @@
                         <i class="fa-solid fa-phone" style="font-size: 2em;"></i>
                         <div class="d-flex">
                             <p class="p-0 m-0">Ligar</p>
-                            <img src="images/Icons/arrow.svg" alt="" class="" style="width: 0.7em;">
+                            <img src="{{asset('images/Icons/arrow.svg')}}" alt="" class="" style="width: 0.7em;">
                         </div>
                     </a>
                 </div>

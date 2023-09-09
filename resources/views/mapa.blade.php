@@ -42,31 +42,37 @@
     </section>
 
 
-    <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4"
-             style="background-color: #131313; margin-bottom: -1px;">
-        <div class="d-flex justify-content-between">
-            <div>
-                <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
-                   href="index.html">
-                    <img src="img/Icons/Home.svg" alt="">
-                    <p class="fs-6 m-0" style="color: #FFFFFF;">Home</p>
-                </a>
-            </div>
-            <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -60px;">
-                <a class="text-decoration-none p-0 m-0" href="estabelecimento.html">
-                    <img src="img/Icons/Indicacao.png" alt="" style="width: 72px;">
-                </a>
-            </div>
-            <div>
-                <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
-                   href="mapa.html">
-                    <img src="img/Icons/Pesquisa-active.svg" alt="">
-                    <p class="fs-6 m-0" style="color: #EA9F30;">Busca</p>
-                </a>
-            </div>
-        </div>
-    </section>
 </main>
+<section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4 w-100"
+         style="background-color: #131313; margin-bottom: -1px;">
+    <div class="d-flex justify-content-between">
+        <div>
+            <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
+               href="{{ url('/') }}">
+                <img src="{{asset('images/Icons/Home.svg')}}" alt="">
+                <p class="fs-6 m-0" style="color: #FFFFFF;">Home</p>
+            </a>
+        </div>
+        <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -48px;">
+            <?php
+            $estabelecimentos = \App\Models\Establishment::all();
+            $estabelecimentoAleatorio = $estabelecimentos->random();
+            $idEstabelecimentoAleatorio = $estabelecimentoAleatorio->id;
+            ?>
+            <a class="text-decoration-none p-0 m-0" href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">
+                <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
+            </a>
+            <p>Indicação</p>
+        </div>
+        <div>
+            <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
+               href="{{ url('/busca') }}">
+                <img src="{{asset('images/Icons/Pesquisa-active.svg')}}" alt="">
+                <p class="fs-6 m-0" style="color: #EA9F30;">Busca</p>
+            </a>
+        </div>
+    </div>
+</section>
 
 
 

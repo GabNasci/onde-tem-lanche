@@ -111,31 +111,7 @@
         </main>
     </div>
 
-    <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4 w-100"
-             style="background-color: #131313; margin-bottom: -1px;">
-        <div class="d-flex justify-content-between">
-            <div>
-                <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
-                   href="{{ url('/') }}">
-                    <img src="{{asset('images/Icons/Home-active.svg')}}" alt="">
-                    <p class="fs-6 m-0" style="color: #EA9F30;">Home</p>
-                </a>
-            </div>
-            <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -48px;">
-                <a class="text-decoration-none p-0 m-0" href="estabelecimento.html">
-                    <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
-                </a>
-                <p>Indicação</p>
-            </div>
-            <div>
-                <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
-                   href="{{ url('/busca') }}">
-                    <img src="{{asset('images/Icons/Pesquisa.svg')}}" alt="">
-                    <p class="fs-6 m-0" style="color: #FFFFFF;">Busca</p>
-                </a>
-            </div>
-        </div>
-    </section>
+
     <div class="w-100 pb-5" style="background-color: #EA9F30;">
         <footer class="w-100 pt-4 d-flex flex-column align-items-center align-items-lg-start gap-4"
                 style="margin-top: 112px;">

@@ -44,8 +44,8 @@
                                 class="category_icon"
                                 style="width: 40px;"/>
                         </a>
-                    </div>
 
+                    </div>
                 @endforeach
 
             </section>
@@ -87,7 +87,7 @@
             <section class="container d-flex flex-column justify-content-center gap-4">
                 @if($establishments->count() > 0)
                     @foreach($establishments as $establishment)
-                        <div class="card rounded-4">
+                        <div class="card rounded-4 shadow">
                             <div class="d-flex">
                                 <div class="col-3 col-md-2 p-2">
                                     <img src="{{asset('images/' . $establishment->imagem_logo)}}" class="card-img img-fluid rounded-4 border border-2" alt="..."
@@ -150,6 +150,36 @@
 
 
     </main>
+    <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4 w-100"
+             style="background-color: #131313; margin-bottom: -1px;">
+        <div class="d-flex justify-content-between">
+            <div>
+                <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
+                   href="{{ url('/') }}">
+                    <img src="{{asset('images/Icons/Home.svg')}}" alt="">
+                    <p class="fs-6 m-0" style="color: #FFFFFF;">Home</p>
+                </a>
+            </div>
+            <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -48px;">
+                <?php
+                $estabelecimentos = \App\Models\Establishment::all();
+                $estabelecimentoAleatorio = $estabelecimentos->random();
+                $idEstabelecimentoAleatorio = $estabelecimentoAleatorio->id;
+                ?>
+                <a class="text-decoration-none p-0 m-0" href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">
+                    <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
+                </a>
+                <p>Indicação</p>
+            </div>
+            <div>
+                <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
+                   href="{{ url('/busca') }}">
+                    <img src="{{asset('images/Icons/Pesquisa-active.svg')}}" alt="">
+                    <p class="fs-6 m-0" style="color: #EA9F30;">Busca</p>
+                </a>
+            </div>
+        </div>
+    </section>
 @endsection
 @section('scripts')
 <script>

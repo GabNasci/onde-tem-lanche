@@ -5,6 +5,7 @@ use App\Http\Controllers\EstablishmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use App\Models\Establishment;
 use App\Models\Event;
@@ -36,7 +37,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/busca', [SearchController::class, 'index'])->name('busca');
 Route::get('/mapa', [SearchController::class, 'mapa'])->name('mapa');
 Route::get('/estabelecimentos/{establishment}', [EstablishmentController::class, 'show'])->name('estabelecimentos.show');
-Route::get('/produto/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('produtos.show');
+Route::get('/produto/{product}', [ProductController::class, 'show'])->name('produtos.show');
 
 
 Route::get('/politica-de-privacidade', [DocumentosController::class, 'privacy'])->name('politica-de-privacidade');
