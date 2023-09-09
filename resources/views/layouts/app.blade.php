@@ -31,64 +31,13 @@
 </head>
 <body>
     <div id="app">
-        <!--<header class="header">
-            <section class="header__container">
-                <a href="{{ url('/') }}">
-                    <img
-                        class="logo"
-                        src="{{ asset("images/logo-otl-1.png") }}"
-                        title="logo onde tem lanche?"
-                        alt="logo onde tem lanche?"
-                    />
-                </a>
-                <nav class="menu-navegacao">
-                    <ul class="header__lista">
-                        <li class="none">
-                            <a href={{ url('/') }}>Início</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/indicacao') }}">Indicação</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('/busca') }}">Busca</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="login-cadastro">
-                    @guest
-                        @if (Route::has('register'))
-                            <a class="header__botao-cadastro" href="{{ route('register') }}">{{ __('Fazer Cadastro') }}</a>
-                        @endif
-
-                        @if (Route::has('login'))
-                            <a class="header__botao-login" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        @endif
-                    @else
-
-                          <div>
-                              <a class="header__mensagem-bem-vindo" href="{{ route('user') }}">Bem-vindo, {{ Auth::user()->name }}! <span style="margin-left: 3px;"><img alt="avatar" src="{{ asset('images/avatar.png') }}" style=" width: 19%; height: 50px;"/></span></a>
-                          </div>
-
-                        <div>
-                            <a class="header__botao-logout" href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-
-                    @endguest
-                </div>
-            </section>
-        </header>-->
 
         <header class="header fixed-top" style="margin-top: -1px;">
             <nav class="navbar navbar-expand-lg" style="background-color: #EA9F30;" data-bs-theme="dark">
                 <div class="container-fluid px-md-5">
                     <a class="navbar-brand p-0 m-0" href="{{ url('/') }}">
                         <img class="logo" src="{{ asset("images/Logos/ondetemlanchelogo.svg") }}" title="logo onde tem lanche?"
-                             alt="logo onde tem lanche?"  style="margin-right: 13vw;" />
+                             alt="logo onde tem lanche?"  style="margin-right: 10vw;" />
                     </a>
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -105,7 +54,12 @@
                                     <a class="nav-link text-dark" aria-current="page" href="{{ url('/') }}">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark " href="{{ url('/indicacao')}}">Indicação</a>
+                                    <?php
+                                    $estabelecimentos = \App\Models\Establishment::all();
+                                    $estabelecimentoAleatorio = $estabelecimentos->random();
+                                    $idEstabelecimentoAleatorio = $estabelecimentoAleatorio->id;
+                                    ?>
+                                    <a class="nav-link text-dark " href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">Indicação</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark " href="{{ url('/busca') }}">Busca</a>
@@ -122,17 +76,16 @@
                                     @endif
                                 @else
 
-
-                                        <!--<a class="header__mensagem-bem-vindo" href="{{ route('user') }}">Bem-vindo, {{ Auth::user()->name }}! <span style="margin-left: 3px;"><img alt="avatar" src="{{ asset('images/avatar.png') }}" style=" width: 19%; height: 50px;"/></span></a>-->
                                         <?php
-                                        $nomeExploded = explode(" ", Auth::user()->name);
+                                        $nomeExploded = explode(" ", \Illuminate\Support\Facades\Auth::user()->name);
+                                        $userAvatar = \Illuminate\Support\Facades\Auth::user()->avatar;
                                         ?>
                                         <a href="{{ route('user') }}" class="text-decoration-none text-dark m-0">Bem vindo, {{isset($nomeExploded[0]) ? $nomeExploded[0] : Auth::user()->name}}!</a>
-                                        <img src="{{ isset($user->avatar) ? : asset('/images/Avatars/avatar.png')  }}" class="rounded-circle img-fluid object-fit-cover" alt="" style="height: 50px;width: 50px;">
+                                        <img src="{{ isset($userAvatar) ? 'images/' . $userAvatar : asset('images/Avatars/avatar.png')  }}" class="rounded-circle img-fluid object-fit-cover" alt="" style="height: 50px;width: 50px;">
 
-
-                                    <div>
-                                        <a class="header__botao-logout" href="{{ route('logout') }}"
+                            </div>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <a class="btn btn-light p-1 m-0" href="{{ route('logout') }}"
                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -143,7 +96,7 @@
                                 @endguest
 
 
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -154,62 +107,35 @@
         <main>
             @include('flash-message')
             @yield('content')
+
         </main>
     </div>
 
-    <!--<footer class="main-footer">
-        <section class="container1">
-            <div class="footer__div">
-                <h3 class="footer__titulos">Canais de Atendimento</h3>
-                <ul class="footer__lista-atendimento">
-                    <li class="footer__item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="mailto:atendimento@ondetemlanche.com.br">atendimento@ondetemlanche.com.br</a>
-                    </li>
-                    <li class="footer__item">
-                        <i class="fa-solid fa-phone"></i>
-                        <a href="https://wa.me/554499999999">+55 (44) 99999-9999</a>
-                    </li>
-                </ul>
+    <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4 w-100"
+             style="background-color: #131313; margin-bottom: -1px;">
+        <div class="d-flex justify-content-between">
+            <div>
+                <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
+                   href="{{ url('/') }}">
+                    <img src="{{asset('images/Icons/Home-active.svg')}}" alt="">
+                    <p class="fs-6 m-0" style="color: #EA9F30;">Home</p>
+                </a>
             </div>
-            <div class="footer__div">
-                <h3 class="footer__titulos">Redes Sociais</h3>
-                <ul class="footer__lista-redes">
-                    <a href="#" class="footer__item">
-                        <i class="fa-brands fa-square-facebook"></i>
-                    </a>
-                    <a href="#" class="footer__item">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#" class="footer__item">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-                    <a href="#" class="footer__item">
-                        <i class="fa-brands fa-twitter"></i>
-                    </a>
-                </ul>
+            <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -48px;">
+                <a class="text-decoration-none p-0 m-0" href="estabelecimento.html">
+                    <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
+                </a>
+                <p>Indicação</p>
             </div>
-            <div class="footer__div">
-                <h3 class="footer__titulos">Documentos</h3>
-                <ul class="footer__lista-termo">
-                    <a href="{{ route('termos') }}" class="footer__item__link">Termos e condições de uso</a>
-                    <a href="{{ route('politica-de-privacidade') }}" class="footer__item__link">Privacidade do usuário</a>
-                </ul>
+            <div>
+                <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
+                   href="{{ url('/busca') }}">
+                    <img src="{{asset('images/Icons/Pesquisa.svg')}}" alt="">
+                    <p class="fs-6 m-0" style="color: #FFFFFF;">Busca</p>
+                </a>
             </div>
-        </section>
-        <section class="container2">
-            <div class="container2__div">
-                <img
-                    class="logo__footer"
-                    src="{{ asset("images/Logos/ondetemlanchelogo.svg") }}"
-                    title="logo onde tem lanche?"
-                    alt="logo onde tem lanche?"
-                />
-                <p class="footer__texto">desenvolvido por É os Guri</p>
-            </div>
-        </section>
-    </footer>-->
-
+        </div>
+    </section>
     <div class="w-100 pb-5" style="background-color: #EA9F30;">
         <footer class="w-100 pt-4 d-flex flex-column align-items-center align-items-lg-start gap-4"
                 style="margin-top: 112px;">

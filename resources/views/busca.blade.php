@@ -6,8 +6,8 @@
         <section class="container d-flex flex-column gap-2">
 
             <section class=" d-flex d-md-none justify-content-center w-100">
-                <a href="busca.html" class="btn active w-100">Lista</a>
-                <a href="mapa.html" class="btn w-100">Mapa</a>
+                <a href="{{route('busca')}}" class="btn active w-100">Lista</a>
+                <a href="{{route('mapa')}}" class="btn w-100">Mapa</a>
             </section>
             <form method="GET" action="{{ route('busca') }}">
                 @csrf
@@ -37,15 +37,12 @@
             <section class="d-flex justify-content-md-center gap-1 categorias" style="max-width: 100vw; overflow-x: scroll;">
                 @foreach($categories as $category)
                     <div class="category-item">
-                        <a href="{{route('busca') . '?categories[]=' . $category->id}}"
-                           class="category-link"
-                           data-checked="{{ $category->selecionada ? 'true' : 'false' }}">
+                        <a href="{{$category->selecionada ? route('busca') : url('/busca?categoryId='.$category->id) }}">
                             <img
                                 src="{{ asset('images/'.$category->icone) }}"
                                 alt="{{ $category->nome }}"
                                 class="category_icon"
                                 style="width: 40px;"/>
-                            <label for="{{$category->id}}">{{ $category->nome }}</label>
                         </a>
                     </div>
 
@@ -62,16 +59,13 @@
                 <a href="{{route('mapa')}}" class="btn w-100">Mapa</a>
             </section>
 
-            <section class="d-none container d-lg-flex align-items-center gap-2">
+            <section class=" container d    -flex align-items-center gap-2">
                 <h4 class="px-2 fw-bold m-0"
-                    style="background-color: #EA9F30; font-family: 'destaque'; min-width: fit-content;">Todos os restaurantes</h4>
+                    style="background-color: #EA9F30; font-family: 'destaque'; min-width: fit-content;">Restaurantes</h4>
                 <hr class="border border-3 opacity-100 w-100" style="color: #707070;">
             </section>
 
-            <section class="d-lg-none container d-flex align-items-center gap-2">
-                <h4 class="px-2 fw-bold m-0" style="background-color: #EA9F30; font-family: 'destaque';">Restaurantes</h4>
-                <hr class="border border-3 opacity-100 w-100" style="color: #707070; ">
-            </section>
+
 
 
             <section class="container d-flex justify-content-end gap-2">
@@ -84,9 +78,9 @@
                     }
                     $ids = implode(",", $ids);
                     ?>
-                    <option selected>Ordenar</option>
-                    <option value="{{ url('/busca?ordenacao=asc&ids='.$ids) }}">A-Z</option>
-                    <option value="{{ url('/busca?ordenacao=desc&ids='.$ids) }}">Z-A</option>
+                    <option {{ request('ordenacao') === '' ? 'selected' : '' }} value="{{ route('busca') }}" >Ordenar</option>
+                    <option {{ request('ordenacao') === 'asc' ? 'selected' : '' }} value="{{ url('/busca?ordenacao=asc&ids='.$ids) }}">A-Z</option>
+                    <option {{ request('ordenacao') === 'desc' ? 'selected' : '' }} value="{{ url('/busca?ordenacao=desc&ids='.$ids) }}">Z-A</option>
                 </select>
             </section>
 
@@ -144,7 +138,7 @@
                     @endforeach
                 @else
                     <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
-                        <img src="images/SVG/prato_vazio.svg" alt="" style="width: 256px;">
+                        <img src="{{asset('images/SVG/prato_vazio.svg')}}" alt="" style="width: 256px;">
                         <h1 class="fw-bold" style="color: #707070;">Não há resultados</h1>
                     </div>
                 @endif
@@ -155,30 +149,6 @@
         </section>
 
 
-        <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4"
-                 style="background-color: #131313; margin-bottom: -1px;">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
-                       href="index.html">
-                        <img src="img/Icons/Home.svg" alt="">
-                        <p class="fs-6 m-0" style="color: #FFFFFF;">Home</p>
-                    </a>
-                </div>
-                <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -60px;">
-                    <a class="text-decoration-none p-0 m-0" href="estabelecimento.html">
-                        <img src="img/Icons/Indicacao.png" alt="" style="width: 72px;">
-                    </a>
-                </div>
-                <div>
-                    <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
-                       href="busca.html">
-                        <img src="img/Icons/Pesquisa-active.svg" alt="">
-                        <p class="fs-6 m-0" style="color: #EA9F30;">Busca</p>
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
 @endsection
 @section('scripts')

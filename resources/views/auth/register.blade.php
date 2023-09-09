@@ -120,9 +120,9 @@
         <form method="POST" action="{{ route('register') }}" class="container text-center d-flex flex-column gap-4 align-items-center">
             @csrf
             <h1 class="text-center fw-bold fs-2">Legal! Vamos criar sua conta.</h1>
-            <div class="d-flex flex-column gap-4">
+            <div class="d-flex flex-column gap-4" style="width: 300px">
                 <div>
-                    <label type="text" for="name" class="form-label fs-5" for="form2Example1">Qual seu nome completo?</label>
+                    <label type="text" for="name" class="form-label fs-5" >Qual seu nome completo?</label>
                     <input id="name"
                            name="name"
                            type="text"
@@ -130,7 +130,7 @@
                            required
                            value="{{ old('name') }}"
                            autofocus
-                           class="form-control @error('name') is-invalid @enderror" style="border: 1px solid #ACACAC;"
+                           class="form-control @error('name') is-invalid @enderror" style="border: 1px solid #ACACAC;"/>
                 </div>
                 @error('name')
                 <span class="invalid-feedback" role="alert">
@@ -138,7 +138,7 @@
                 </span>
                 @enderror
                 <div>
-                    <label type="text" for="telephone" class="form-label fs-5" for="form2Example1">Qual seu telefone?</label>
+                    <label type="number" for="telephone" class="form-label fs-5" >Qual seu telefone?</label>
                     <input id="telephone"
                            type="text"
                            name="telephone"
@@ -162,7 +162,7 @@
                            value="{{ old('email') }}"
                            required
                            autofocus
-                           class="form-control @error('email') is-invalid @enderror" style="border: 1px solid #ACACAC;"
+                           class="form-control @error('email') is-invalid @enderror" style="border: 1px solid #ACACAC;"/>
                 </div>
                 @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -170,14 +170,14 @@
                 </span>
                 @enderror
                 <div>
-                    <label for="password" class="form-label fs-5" for="form2Example2">Crie uma senha</label>
+                    <label for="password" class="form-label fs-5" >Crie uma senha</label>
                     <input id="password"
                            name="password"
                            type="password"
                            required
                            placeholder="Crie sua senha"
                            autofocus
-                           class="form-control @error('password') is-invalid @enderror" style="border: 1px solid #ACACAC;"
+                           class="form-control @error('password') is-invalid @enderror" style="border: 1px solid #ACACAC;"/>
                 </div>
                 @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -192,7 +192,7 @@
                            placeholder="Confirme sua senha"
                            required
                            autocomplete="new-password"
-                           class="form-control" style="border: 1px solid #ACACAC;"
+                           class="form-control" style="border: 1px solid #ACACAC;"/>
                 </div>
             </div>
             <div class="container d-flex justify-content-center">

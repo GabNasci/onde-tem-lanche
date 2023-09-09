@@ -47,10 +47,6 @@
         <div class="col d-flex justify-content-center m-0">
 
             <div class="d-flex flex-column justify-content-center align-items-center p-0">
-                <div class="d-flex gap-2">
-                    <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                    <label class="form-check-label" for="form2Example31"> Lembrar de mim </label>
-                </div>
                 @if(Route::has('password.request'))
                     <a href="{{ route('password.request') }}" class="p-0 m-0">Esqueceu sua senha?</a>
                 @endif

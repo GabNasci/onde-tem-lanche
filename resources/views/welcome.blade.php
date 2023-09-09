@@ -226,7 +226,7 @@
                                             <div class="d-flex justify-content-between w-100">
                                                 <a href="{{ url('/produto/' . $product->id ) }}" class="text-decoration-none text-dark">
                                                     <h5 class="card-title fw-bold m-0">{{ $product->nome_produto }}</h5>
-                                                    <p>{{$product->tipo}}</p>
+                                                    <p class="m-0">{{$product->tipo}}</p>
 
                                                 </a>
                                                 <p class="btn btn-dark border-0 px-1 py-1 fs-6 fw-bold m-0" style="background-color: #00A023; height: 32px;">

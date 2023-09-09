@@ -69,13 +69,12 @@
                 <label class="form-label" for="form2Example1" style="font-size: large;">Digite o seu e-mail</label>
                 <input id="email"
                        type="email"
-                       class="formulario__campo__input "
                        name="email"
                        value="{{ $email ?? old('email') }}"
                        required
                        autocomplete="email"
                        autofocus
-                       class="form-control" style="border: 1px solid #ACACAC;"
+                       class="form-control @error('email') is-invalid @enderror" style="border: 1px solid #ACACAC;"
                        placeholder="E-mail" />
             </div>
             @error('email')
