@@ -50,6 +50,7 @@ class SearchController extends Controller
                 ->get();
         }
 
+
         return view('busca')->with(compact(['categories', 'establishments']));
     }
 

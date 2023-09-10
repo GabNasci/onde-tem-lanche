@@ -82,7 +82,7 @@
                                                     <p class="card-text">{{ $event->descricao }}</p>
                                                 </div>
                                                 <div class="d-flex justify-content-center gap-5 gap-md-4">
-                                                    <a href="{{ $event->url }}" target="_blank"
+                                                    <a href="{{ $event->url ? : '#' }}" {{ $event->url ? 'target="_blank"': '' }}
                                                        class="btn btn-primary text-dark border-0 d-flex align-items-center gap-2 px-5 px-md-2"
                                                        style="background-color:#7DD3EE;">
                                                         <i class="fa-solid fa-circle-info fs-5"></i>

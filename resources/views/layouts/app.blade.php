@@ -81,7 +81,7 @@
                                         $userAvatar = \Illuminate\Support\Facades\Auth::user()->avatar;
                                         ?>
                                         <a href="{{ route('user') }}" class="text-decoration-none text-dark m-0">Bem vindo, {{isset($nomeExploded[0]) ? $nomeExploded[0] : Auth::user()->name}}!</a>
-                                        <img src="{{ isset($userAvatar) ? 'images/' . $userAvatar : asset('images/Avatars/avatar.png')  }}" class="rounded-circle img-fluid object-fit-cover" alt="" style="height: 50px;width: 50px;">
+                                        <img src="{{ isset($userAvatar) ? asset('images/' . $userAvatar) : asset('images/Avatars/avatar.png')  }}" class="rounded-circle img-fluid object-fit-cover" alt="foto de perfil do usuário" style="height: 50px;width: 50px;">
 
                             </div>
                                     <div class="d-flex justify-content-center align-items-center">

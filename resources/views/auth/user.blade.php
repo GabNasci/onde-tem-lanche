@@ -38,7 +38,7 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <form method="POST" action="{{ route('user.update') }}">
+                            <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
 
@@ -86,7 +86,7 @@
 
                                 <div class="form-outline mb-4 text-center" style="width: 300px;">
                                     <label class="form-label fs-5" for="avatar">Alterar Imagem</label>
-                                    <input id="avatar" type="file" accept="image/png, image/jpeg" class="form-control"
+                                    <input name="avatar" id="avatar" type="file" accept="image/png, image/jpeg" class="form-control"
                                            style="border: 1px solid #ACACAC;" placeholder="" />
                                 </div>
 
