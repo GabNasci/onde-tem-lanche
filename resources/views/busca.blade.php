@@ -90,7 +90,7 @@
                         <div class="card rounded-4 shadow">
                             <div class="d-flex">
                                 <div class="col-3 col-md-2 p-2">
-                                    <img src="{{asset('images/' . $establishment->imagem_logo)}}" class="card-img img-fluid rounded-4 border border-2" alt="..."
+                                    <img src="{{asset('images/' . $establishment->imagem_logo)}}" class="card-img img-fluid rounded-4 border border-2" alt="Logo do restaurante {{$establishment->nome}}"
                                          style="width: 100%;">
                                 </div>
                                 <div class="col-md-10">
@@ -99,7 +99,7 @@
                                             <h5 class="card-title m-0 fw-bold fs-4">{{$establishment->nome}}</h5>
                                             <div class="d-none d-lg-flex gap-2">
                                                 @foreach($establishment->categories as $categoryPivot)
-                                                    <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 1.5em;">
+                                                    <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="Ícone da categoria {{$categoryPivot->nome}}" style="width: 1.5em;">
                                                 @endforeach
                                             </div>
                                         </div>
@@ -138,7 +138,7 @@
                     @endforeach
                 @else
                     <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
-                        <img src="{{asset('images/SVG/prato_vazio.svg')}}" alt="" style="width: 256px;">
+                        <img src="{{asset('images/SVG/prato_vazio.svg')}}" alt="Imagem de um prato vazio cheio de migalhas" style="width: 256px;">
                         <h1 class="fw-bold" style="color: #707070;">Não há resultados</h1>
                     </div>
                 @endif
@@ -156,25 +156,25 @@
             <div>
                 <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
                    href="{{ url('/') }}">
-                    <img src="{{asset('images/Icons/Home.svg')}}" alt="">
+                    <img src="{{asset('images/Icons/Home.svg')}}" alt="Ícone de Casa">
                     <p class="fs-6 m-0" style="color: #FFFFFF;">Home</p>
                 </a>
             </div>
             <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -48px;">
                 <?php
-                $estabelecimentos = \App\Models\Establishment::all();
-                $estabelecimentoAleatorio = $estabelecimentos->random();
-                $idEstabelecimentoAleatorio = $estabelecimentoAleatorio->id;
+                    $estabelecimentos = \App\Models\Establishment::all();
+                    $estabelecimentoAleatorio = $estabelecimentos->random();
+                    $idEstabelecimentoAleatorio = $estabelecimentoAleatorio->id;
                 ?>
                 <a class="text-decoration-none p-0 m-0" href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">
-                    <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
+                    <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="Ícone de Estabelecimento" style="width: 80px;">
                 </a>
                 <p class="fs-6 m-0" style="color: #FFFFFF; font-family: 'destaque';">Indicação</p>
             </div>
             <div>
                 <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
                    href="{{ url('/busca') }}">
-                    <img src="{{asset('images/Icons/Pesquisa-active.svg')}}" alt="">
+                    <img src="{{asset('images/Icons/Pesquisa-active.svg')}}" alt="Ícone de Pesquisa Selecionado">
                     <p class="fs-5 m-0" style="color: #EA9F30;">Busca</p>
                 </a>
             </div>

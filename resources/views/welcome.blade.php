@@ -106,8 +106,6 @@
                             </div>
                         @endforeach
 
-
-
                     </div>
                     <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#carouselExampleEvent"
                             data-bs-slide="prev"
@@ -229,7 +227,7 @@
                                                     <p class="m-0">{{$product->tipo}}</p>
 
                                                 </a>
-                                                <p class="btn btn-dark border-0 px-1 py-1 fs-6 fw-bold m-0" style="background-color: #00A023; height: 32px;">
+                                                <p class="text-light rounded-2 border-0 px-1 py-1 fs-6 fw-bold m-0" style="background-color: #00A023; height: 32px;">
                                                     R${{ number_format($product->preco, 2, ',', '.') }}
                                                 </p>
                                             </div>
@@ -240,13 +238,6 @@
                     </section>
                 @endforeach
             @endforeach
-
-
-
-
-
-
-
         </main>
         <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4 w-100"
                  style="background-color: #131313; margin-bottom: -1px;">
@@ -260,9 +251,9 @@
                 </div>
                 <div class="align-self-center d-flex flex-column align-items-center" style="margin-top: -48px;">
                     <?php
-                    $estabelecimentos = \App\Models\Establishment::all();
-                    $estabelecimentoAleatorio = $estabelecimentos->random();
-                    $idEstabelecimentoAleatorio = $estabelecimentoAleatorio->id;
+                        $estabelecimentos = \App\Models\Establishment::all();
+                        $estabelecimentoAleatorio = $estabelecimentos->random();
+                        $idEstabelecimentoAleatorio = $estabelecimentoAleatorio->id;
                     ?>
                     <a class="text-decoration-none p-0 m-0" href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">
                         <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">

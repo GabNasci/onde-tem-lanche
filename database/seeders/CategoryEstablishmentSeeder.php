@@ -23,6 +23,8 @@ class CategoryEstablishmentSeeder extends Seeder
         $categoriaDrinks = Category::query()->where('nome', 'Drinks')->first();
         $categoriaBurger = Category::query()->where('nome', 'Hamburgueria')->first();
         $categoriaPorcao = Category::query()->where('nome', 'Porções')->first();
+        $categoriaHotDogs = Category::query()->where('nome', 'Hot Dogs')->first();
+        $categoriaSemGluten = Category::query()->where('nome', 'Sem Glúten')->first();
 
         $establishmentPizzaChef = Establishment::query()->where('nome',  'Pizza Chef')->first();
 
@@ -69,6 +71,31 @@ class CategoryEstablishmentSeeder extends Seeder
             'category_id' => $categoriaPorcao->id,
             'establishment_id' => $establishmentBurgerPark->id
         ]);
+
+        $establishmentYummy = Establishment::query()->where('nome',  'Yummy Hot Dogs')->first();
+
+        CategoryEstablishment::create([
+            'category_id' => $categoriaHotDogs->id,
+            'establishment_id' => $establishmentYummy->id
+        ]);
+
+        $establishmentBorcelle = Establishment::query()->where('nome',  'Borcelle')->first();
+
+        CategoryEstablishment::create([
+            'category_id' => $categoriaPorcao->id,
+            'establishment_id' => $establishmentBorcelle->id
+        ]);
+
+        CategoryEstablishment::create([
+            'category_id' => $categoriaVeg->id,
+            'establishment_id' => $establishmentBorcelle->id
+        ]);
+
+        CategoryEstablishment::create([
+            'category_id' => $categoriaSemGluten->id,
+            'establishment_id' => $establishmentBorcelle->id
+        ]);
+
 
     }
 }

@@ -26,7 +26,7 @@
                                         <div class="tab-pane {{ $i === 0 ? 'active' : ''}} " id="{{$i + 1}}-tab-pane"
                                              role="tabpanel" aria-labelledby="{{$i + 1}}-tab" tabindex="0">
                                             <p>{{$i + 1 . "/" . $establishment->banners->count()}}</p>
-                                            <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover w-100" alt="" style="height: 220px">
+                                            <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover w-100" alt="Banner do Restaurante {{$establishment->nome}}" style="height: 220px">
                                         </div>
                                     @endforeach
                                 </div>
@@ -38,7 +38,7 @@
                                             <a href="#{{$i + 1}}" class="nav-link link-underline-opacity-100 {{ $i === 0 ? 'active' : ''}}" id="{{$i + 1}}-tab" data-bs-toggle="tab"
                                                data-bs-target="#{{$i + 1}}-tab-pane" type="button" role="tab" aria-controls="{{$i + 1}}-tab-pane"
                                                aria-selected="true" style="color: #EA9F30;">
-                                                <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover" alt="" style="width: 64px; height: 64px;">
+                                                <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover" alt="Banner do Restaurante {{$establishment->nome}}" style="width: 64px; height: 64px;">
                                             </a>
                                         </li>
                                     @endforeach
@@ -47,12 +47,12 @@
                         </div>
                     </div>
                 </div>
-                <img src="{{ asset('images/'.$establishment->banners()->where('is_destaque', true)->first()->imagem)}}" class="w-100 img-fluid object-fit-cover" alt=""
+                <img src="{{ asset('images/'.$establishment->banners()->where('is_destaque', true)->first()->imagem)}}" class="w-100 img-fluid object-fit-cover" alt="Banner do Restaurante {{$establishment->nome}}"
                      style="height: 10rem;">
             </div>
             <div class="d-flex">
                 <div class="col-4 col-md-2 p-2">
-                    <img src="{{asset('images/' . $establishment->imagem_logo)}}" class="card-img img-fluid rounded-4 border border-2" alt="..."
+                    <img src="{{asset('images/' . $establishment->imagem_logo)}}" class="card-img img-fluid rounded-4 border border-2" alt="Logo do Restaurante {{$establishment->nome}}"
                          style="width: 100%;">
                 </div>
                 <div class="col-md-10">
@@ -61,21 +61,27 @@
                             <div class="d-flex gap-2">
                                 <h5 class="card-title m-0 fw-bold fs-4">{{$establishment->nome}}</h5>
                                 <ul class="d-none list-unstyled d-md-flex p-0 m-0 justify-content-center align-items-end gap-2">
-                                    <li>
-                                        <a href="{{$establishment->instagram}}" target="_blank" class="text-decoration-none link-dark">
-                                            <i class="fa-brands fa-instagram fs-4"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{$establishment->facebook}}" target="_blank" class="text-decoration-none link-dark">
-                                            <i class="fa-brands fa-square-facebook fs-4"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ 'https://wa.me/'.$establishment->whatsapp }}" target="_blank" class="text-decoration-none link-dark">
-                                            <i class="fa-brands fa-whatsapp fs-4"></i>
-                                        </a>
-                                    </li>
+                                    @if($establishment->instagram)
+                                        <li>
+                                            <a href="{{$establishment->instagram}}" target="_blank" class="text-decoration-none link-dark">
+                                                <i class="fa-brands fa-instagram fs-4"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if($establishment->facebook)
+                                        <li>
+                                            <a href="{{$establishment->facebook}}" target="_blank" class="text-decoration-none link-dark">
+                                                <i class="fa-brands fa-square-facebook fs-4"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if($establishment->whatsapp)
+                                        <li>
+                                            <a href="{{ 'https://wa.me/'.$establishment->whatsapp }}" target="_blank" class="text-decoration-none link-dark">
+                                                <i class="fa-brands fa-whatsapp fs-4"></i>
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="d-flex justify-content-between">
@@ -88,10 +94,12 @@
                                         <i class="fa-solid fa-location-dot"></i>
                                         <p class="card-text fw-bold">{{$establishment->logradouro . ", " . $establishment->numero . ", " . $establishment->bairro}}</p>
                                     </div>
-                                    <div class="d-none d-lg-flex gap-2 align-items-center">
-                                        <i class="fa-solid fa-phone"></i>
-                                        <p class="card-text fw-bold">{{$establishment->whatsapp}}</p>
-                                    </div>
+                                    @if($establishment->whatsapp)
+                                        <div class="d-none d-lg-flex gap-2 align-items-center">
+                                            <i class="fa-solid fa-phone"></i>
+                                            <p class="card-text fw-bold">{{$establishment->whatsapp}}</p>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
 
@@ -102,7 +110,7 @@
                         </div>
                         <div class=" d-lg-flex gap-2">
                             @foreach($establishment->categories as $categoryPivot)
-                                <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 32px;">
+                                <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="Ícone  da categoria {{$categoryPivot->nome}}" style="width: 32px;">
                             @endforeach
                         </div>
                     </div>
@@ -121,7 +129,7 @@
                         <i class="fa-solid fa-earth-americas" style="font-size: 2em;"></i>
                         <div class="d-flex">
                             <p class="p-0 m-0">Site</p>
-                            <img src="{{asset('images/Icons/arrow.svg')}}" alt="" class="" style="width: 0.7em;">
+                            <img src="{{asset('images/Icons/arrow.svg')}}" alt="Íconde de seta" class="" style="width: 0.7em;">
                         </div>
                     </a>
                 </div>
@@ -132,7 +140,7 @@
                         <i class="fa-solid fa-phone" style="font-size: 2em;"></i>
                         <div class="d-flex">
                             <p class="p-0 m-0">Ligar</p>
-                            <img src="{{asset('images/Icons/arrow.svg')}}" alt="" class="" style="width: 0.7em;">
+                            <img src="{{asset('images/Icons/arrow.svg')}}" alt="Íconde de seta" class="" style="width: 0.7em;">
                         </div>
                     </a>
                 </div>
@@ -145,7 +153,7 @@
 
         <section class="d-flex flex-column gap-4">
 
-            <section class="d-md-none container d-flex">
+            <section class="d-md-none container">
                 <div class="card border-0 gap-2">
                     <ul class="nav nav-underline px-3" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -165,7 +173,7 @@
                             <h5 class="card-title text-start">Descrição</h5>
                             <p class="card-text" style="text-align: justify;">{{$establishment->descricao}}</p>
                         </div>
-                        <div class="tab-pane fade card-body border border-1 rounded-3 shadow-sm" id="profile-tab-pane"
+                        <div class="tab-pane fade card-body border border-1 rounded-3 shadow-sm " id="profile-tab-pane"
                              role="tabpanel" aria-labelledby="profile-tab" tabindex="0" style="height: 260px;">
                             <h5 class="card-title text-start">Contato e localização</h5>
                             <div class="d-flex flex-column gap-4 justify-content-evenly  h-100">
@@ -186,21 +194,21 @@
                                         <ul class=" list-unstyled d-flex p-0 m-0 justify-content-center align-items-end gap-2">
                                             @if($establishment->instagram)
                                                 <li>
-                                                    <a href="{{$establishment->instagram}}" class="text-decoration-none link-dark">
+                                                    <a href="{{$establishment->instagram}}" target="_blank" class="text-decoration-none link-dark">
                                                         <i class="fa-brands fa-instagram fs-3"></i>
                                                     </a>
                                                 </li>
                                             @endif
                                             @if($establishment->facebook)
                                                 <li>
-                                                    <a href="{{$establishment->facebook}}" class="text-decoration-none link-dark">
+                                                    <a href="{{$establishment->facebook}}" target="_blank" class="text-decoration-none link-dark">
                                                         <i class="fa-brands fa-square-facebook fs-3"></i>
                                                     </a>
                                                 </li>
                                             @endif
                                             @if($establishment->whatsapp)
                                                 <li>
-                                                    <a href="{{$establishment->whatsapp}}" class="text-decoration-none link-dark">
+                                                    <a href="{{ 'https://wa.me/'. $establishment->whatsapp }}" target="_blank" class="text-decoration-none link-dark">
                                                         <i class="fa-brands fa-whatsapp fs-3"></i>
                                                     </a>
                                                 </li>
@@ -240,7 +248,7 @@
                                     <div class="row ">
                                         <div class="col-lg-6">
                                             <img src="{{ asset('images/'.$event->foto) }}"
-                                                 class="card-img img-fluid object-fit-cover h-100 rounded-4" alt="...">
+                                                 class="card-img img-fluid object-fit-cover h-100 rounded-4" alt="Banner do evento {{ $event->titulo }}">
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="card-body d-flex row gap-2 gap-md-4 p-0 px-2 py-2">
@@ -326,7 +334,7 @@
                         <div class="card rounded-4 shadow h-100" style="width: 25rem;">
                             <div class="card-img-top d-none d-md-block">
                                 <img src="{{ asset('images/'.$product->images()->first()->imagem) }}"
-                                     class="d-block w-100 img-fluid object-fit-cover rounded-top-4" alt="..." style="height: 12em;">
+                                     class="d-block w-100 img-fluid object-fit-cover rounded-top-4" alt="Imagem do produto {{$product->nome_produto}}" style="height: 12em;">
                             </div>
                             <div class="card-body d-flex justify-content-between align-items-center gap-1 p-2">
                                 <div class="d-flex flex-column justify-content-between ">
@@ -334,19 +342,14 @@
                                         <a href="{{ url('/produto/' . $product->id ) }}" class="text-decoration-none text-dark">
                                             <h5 class="card-title fw-bold ">{{ $product->nome_produto }}</h5>
                                         </a>
-
-    {{--                                    <div class="d-flex gap-2 align-items-start">--}}
-    {{--                                        <img src="/img/Filters/filtro_pizza.svg" alt="..." style="width: 1.5em;">--}}
-    {{--                                        <img src="/img/Filters/filtro_veg.svg" alt="..." style="width: 1.5em;">--}}
-    {{--                                    </div>--}}
                                     </div>
                                     <div class="d-flex gap-2">
-                                        <p class="btn btn-dark border-0 px-1 py-1 fs-6 fw-bold m-0"
+                                        <p class="text-light rounded-2 border-0 px-1 py-1 fs-6 fw-bold m-0"
                                            style="background-color: #00A023;">
                                             R${{ number_format($product->preco, 2, ',', '.') }}
                                         </p>
                                         @if($product->promocional)
-                                            <p class="btn btn-dark border-0 fs-6 fw-bold px-1 py-1 m-0"
+                                            <p class="text-light rounded-2 border-0 fs-6 fw-bold px-1 py-1 m-0"
                                                style="background-color: #0084A0;">
                                                 {{$product->promocional}}
                                             </p>
@@ -354,7 +357,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <img src="{{ asset('images/'.$product->images()->first()->imagem) }}" alt=""
+                                    <img src="{{ asset('images/'.$product->images()->first()->imagem) }}" alt="Imagem do produto {{$product->nome_produto}}"
                                          class="card-img object-fit-cover border border-2 rounded-2 d-md-none"
                                          style="width: 5.5em; height: 5.5em;">
                                 </div>

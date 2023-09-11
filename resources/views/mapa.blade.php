@@ -12,7 +12,6 @@
             <a href="{{route('busca')}}" class="btn active w-100">Mapa</a>
         </section>
 
-
     </section>
 
     <section class="d-flex flex-column gap-2">
@@ -22,21 +21,11 @@
             <a href="{{route('mapa')}}" class="btn active w-100">Mapa</a>
         </section>
 
-
-
-
         <section class="container d-flex flex-column justify-content-center gap-4">
-
-
-
             <div id="map"></div>
-
-
-
         </section>
 
     </section>
-
 
 </main>
 <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4 w-100"
@@ -45,7 +34,7 @@
         <div>
             <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
                href="{{ url('/') }}">
-                <img src="{{asset('images/Icons/Home.svg')}}" alt="">
+                <img src="{{asset('images/Icons/Home.svg')}}" alt="Ícone de Casa">
                 <p class="fs-6 m-0" style="color: #FFFFFF;">Home</p>
             </a>
         </div>
@@ -56,14 +45,14 @@
             $idEstabelecimentoAleatorio = $estabelecimentoAleatorio->id;
             ?>
             <a class="text-decoration-none p-0 m-0" href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">
-                <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
+                <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="Ícone de Estabelecimento" style="width: 80px;">
             </a>
             <p class="fs-6 m-0" style="color: #FFFFFF; font-family: 'destaque';">Indicação</p>
         </div>
         <div>
             <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
                href="{{ url('/busca') }}">
-                <img src="{{asset('images/Icons/Pesquisa-active.svg')}}" alt="">
+                <img src="{{asset('images/Icons/Pesquisa-active.svg')}}" alt="Ícone de Pesquisa Selecionado">
                 <p class="fs-5 m-0" style="color: #EA9F30;">Busca</p>
             </a>
         </div>

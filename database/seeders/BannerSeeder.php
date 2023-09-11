@@ -76,5 +76,47 @@ class BannerSeeder extends Seeder
             'imagem' => 'Banners/imagem-fauget3.svg',
             'is_destaque' => false,
         ]);
+
+        $establishment4 = Establishment::query()->where('id',  '=', 4)->first();
+
+        Banner::create([
+            'establishment_id' => $establishment4->id,
+            'imagem' => 'Banners/imagem-yummy1.svg',
+            'is_destaque' => true,
+        ]);
+
+        Banner::create([
+            'establishment_id' => $establishment4->id,
+            'imagem' => 'Banners/imagem-yummy2.svg',
+            'is_destaque' => false,
+        ]);
+
+        Banner::create([
+            'establishment_id' => $establishment4->id,
+            'imagem' => 'Banners/imagem-yummy3.svg',
+            'is_destaque' => false,
+        ]);
+
+        $establishment5 = Establishment::query()->where('id',  '=', 5)->first();
+
+        Banner::create([
+            'establishment_id' => $establishment5->id,
+            'imagem' => 'Banners/imagem-borcelle1.svg',
+            'is_destaque' => true,
+        ]);
+
+        Banner::create([
+            'establishment_id' => $establishment5->id,
+            'imagem' => 'Banners/imagem-borcelle2.svg',
+            'is_destaque' => false,
+        ]);
+
+        Banner::create([
+            'establishment_id' => $establishment5->id,
+            'imagem' => 'Banners/imagem-borcelle3.svg',
+            'is_destaque' => false,
+        ]);
+
+
     }
 }

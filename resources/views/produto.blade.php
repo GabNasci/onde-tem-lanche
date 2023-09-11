@@ -26,7 +26,7 @@
                                         <div class="tab-pane {{ $i === 0 ? 'active' : ''}} " id="{{$i + 1}}-tab-pane"
                                              role="tabpanel" aria-labelledby="{{$i + 1}}-tab" tabindex="0">
                                             <p>{{$i + 1 . "/" . $product->establishment->banners->count()}}</p>
-                                            <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover w-100" alt="" style="height: 220px">
+                                            <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover w-100" alt="Banner do Restaurante {{$product->establishment->nome}}" style="height: 220px">
                                         </div>
                                     @endforeach
                                 </div>
@@ -38,7 +38,7 @@
                                             <a href="#{{$i + 1}}" class="nav-link link-underline-opacity-100 {{ $i === 0 ? 'active' : ''}}" id="{{$i + 1}}-tab" data-bs-toggle="tab"
                                                data-bs-target="#{{$i + 1}}-tab-pane" type="button" role="tab" aria-controls="{{$i + 1}}-tab-pane"
                                                aria-selected="true" style="color: #EA9F30;">
-                                                <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover" alt="" style="width: 64px; height: 64px;">
+                                                <img src="{{ asset('images/'.$banner->imagem) }}" class="img-fluid object-fit-cover" alt="Banner do Restaurante {{$product->establishment->nome}}" style="width: 64px; height: 64px;">
                                             </a>
                                         </li>
                                     @endforeach
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <img src="{{ asset('images/'.$product->establishment->banners()->where('is_destaque', true)->first()->imagem)}}" class="w-100 img-fluid object-fit-cover" alt=""
+                <img src="{{ asset('images/'.$product->establishment->banners()->where('is_destaque', true)->first()->imagem)}}" class="w-100 img-fluid object-fit-cover" alt="Banner do Produto {{$product->nome_produto}}"
                      style="height: 10rem;">
             </div>
             <div class="d-flex">
@@ -126,7 +126,7 @@
                                 <p class="fs-5 m-0">{{$product->descricao}}</p>
                             </div>
                             <div class="d-flex flex-column align-items-center flex-md-row gap-2 gap-md-4">
-                                <p class="btn btn-dark border-0 px-2 py-1 fs-3 fw-bold m-0"
+                                <p class="text-light border-0 rounded-2 px-2 py-1 fs-3 fw-bold m-0"
                                    style="background-color: #00A023;">
                                     R${{ number_format($product->preco, 2, ',', '.') }}
                                 </p>

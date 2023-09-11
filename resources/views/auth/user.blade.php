@@ -102,6 +102,7 @@
                 </div>
             </section>
         @endsection
+    </main>
         @section('scripts')
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
                 <script src="https://kit.fontawesome.com/b3b83db5db.js" crossorigin="anonymous"></script>

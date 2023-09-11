@@ -1,45 +1,81 @@
 @extends('layouts.app')
 @section('content')
+    <main class="" style="margin-top: 112px">
+        <section class="container">
+            <div class="card ">
+                <h2 class="card-header">Bem-vindo ao Onde Tem Lanche? Ltda.</h2>
+                <div class="card-body overflow-y-scroll" style="height: 500px">
+                    <h2 class="">Política de Privacidade</h2>
 
-    <p>
-        Privacy Policy
-        Who we are
-        Suggested text: Our website address is: https://loremipsum.click.
+                    <p>Esta Política de Privacidade descreve como suas informações pessoais são coletadas, usadas e compartilhadas quando você usa o software <em>Onde Tem Lanche? Ltda.</em> e quaisquer serviços relacionados ("Serviço").</p>
 
-        Comments
-        Suggested text: When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.
+                    <h2>1. Informações que Coletamos</h2>
 
-        An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.
+                    <p>Coletamos as seguintes informações pessoais quando você utiliza nosso Serviço:</p>
 
-        Media
-        Suggested text: If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.
+                    <ul>
+                        <li>Informações de registro, como seu nome, endereço de e-mail e senha.</li>
+                        <li>Informações de perfil, incluindo seu nome, foto de perfil e outras informações que você escolher fornecer.</li>
+                        <li>Informações de uso do Serviço, incluindo interações com estabelecimentos e avaliações.</li>
+                        <li>Informações de localização, se você optar por compartilhar sua localização conosco.</li>
+                    </ul>
 
-        Cookies
-        Suggested text: If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.
+                    <h2>2. Como Usamos Suas Informações</h2>
 
-        If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.
+                    <p>Usamos as informações coletadas para:</p>
 
-        When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select “Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.
+                    <ul>
+                        <li>Fornecer e manter o Serviço.</li>
+                        <li>Personalizar sua experiência e fornecer conteúdo relevante.</li>
+                        <li>Responder a solicitações de suporte e atendimento ao cliente.</li>
+                        <li>Compreender e analisar o uso do Serviço.</li>
+                    </ul>
 
-        If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.
+                    <h2>3. Compartilhamento de Informações</h2>
 
-        Embedded content from other websites
-        Suggested text: Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.
+                    <p>Podemos compartilhar suas informações pessoais com:</p>
 
-        These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.
+                    <ul>
+                        <li>Estabelecimentos para fins de avaliações e interações no Serviço.</li>
+                        <li>Prestadores de serviços que nos auxiliam na operação do Serviço.</li>
+                        <li>Com as autoridades, quando exigido por lei.</li>
+                    </ul>
 
-        Who we share your data with
-        Suggested text: If you request a password reset, your IP address will be included in the reset email.
+                    <h2>4. Seus Direitos</h2>
 
-        How long we retain your data
-        Suggested text: If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.
+                    <p>Você tem o direito de:</p>
 
-        For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.
+                    <ul>
+                        <li>Acessar e corrigir suas informações pessoais.</li>
+                        <li>Solicitar a exclusão de suas informações pessoais.</li>
+                        <li>Retirar seu consentimento a qualquer momento.</li>
+                    </ul>
 
-        What rights you have over your data
-        Suggested text: If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.
+                    <h2>5. Segurança de Dados</h2>
 
-        Where your data is sent
-        Suggested text: Visitor comments may be checked through an automated spam detection service.
-    </p>
+                    <p>Tomamos medidas para proteger suas informações pessoais e garantir a segurança de dados. No entanto, lembre-se de que nenhum método de transmissão pela Internet ou armazenamento eletrônico é completamente seguro.</p>
+
+                    <h2>6. Alterações nesta Política</h2>
+
+                    <p>Podemos atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas práticas de privacidade. A data da última atualização será indicada abaixo.</p>
+
+                    <h2>7. Contato</h2>
+
+                    <p>Para quaisquer dúvidas sobre esta Política de Privacidade, entre em contato conosco através do e-mail <a href="mailto:atendimento@ondetemlanche.com.br">atendimento@ondetemlanche.com.br</a>.</p>
+
+                    <h2>Conclusão</h2>
+
+                    <p>Ao utilizar nosso Serviço, você concorda com os termos desta Política de Privacidade.</p>
+                </div>
+
+                <div class="card-footer text-body-secondary">
+                    <p>Data da última atualização: 08/09/2023</p>
+
+                    <p>Obrigado por escolher <em>Onde Tem Lanche? Ltda.</em>! Esperamos que aproveite nosso Serviço!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
 @endsection
