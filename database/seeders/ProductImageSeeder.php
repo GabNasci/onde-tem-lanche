@@ -19,21 +19,21 @@ class ProductImageSeeder extends Seeder
     {
         /*------------------------------------------Pizza Chef-------------------------------------------------*/
 
-        $product1 = Product::query()->where('nome', 'Rúcula com Tomate Seco')->first();
+        $product1 = Product::query()->where('nome_produto', 'Rúcula com Tomate Seco')->first();
 
         ProductImage::create([
             'product_id' => $product1->id,
             'imagem' => 'Products/rucula-com-tomate-seco.svg',
         ]);
 
-        $product2 = Product::query()->where('nome', 'Margherita')->first();
+        $product2 = Product::query()->where('nome_produto', 'Margherita')->first();
 
         ProductImage::create([
             'product_id' => $product2->id,
             'imagem' => 'Products/margherita.svg',
         ]);
 
-        $product3 = Product::query()->where('nome', 'Pepperoni')->first();
+        $product3 = Product::query()->where('nome_produto', 'Pepperoni')->first();
 
         ProductImage::create([
             'product_id' => $product3->id,
@@ -43,28 +43,28 @@ class ProductImageSeeder extends Seeder
         /*--------------------------------------------------------------------------------------------------*/
         /*------------------------------------------Burger Park---------------------------------------------*/
 
-        $product4 = Product::query()->where('nome', 'X-Burger')->first();
+        $product4 = Product::query()->where('nome_produto', 'X-Burger')->first();
 
         ProductImage::create([
             'product_id' => $product4->id,
             'imagem' => 'Products/x-burger.svg',
         ]);
 
-        $product5 = Product::query()->where('nome', 'X-Bacon')->first();
+        $product5 = Product::query()->where('nome_produto', 'X-Bacon')->first();
 
         ProductImage::create([
             'product_id' => $product5->id,
             'imagem' => 'Products/x-bacon.svg',
         ]);
 
-        $product6 = Product::query()->where('nome', 'Batata frita')->first();
+        $product6 = Product::query()->where('id', '=',6)->first();
 
         ProductImage::create([
             'product_id' => $product6->id,
             'imagem' => 'Products/batata-frita.svg',
         ]);
 
-        $product7 = Product::query()->where('nome', 'Coca-Cola')->first();
+        $product7 = Product::query()->where('id', '=',7)->first();
 
         ProductImage::create([
             'product_id' => $product7->id,
@@ -74,42 +74,42 @@ class ProductImageSeeder extends Seeder
         /*--------------------------------------------------------------------------------------------------*/
         /*---------------------------------------------Fauget-----------------------------------------------*/
 
-        $product8 = Product::query()->where('nome', 'Filé Mignon')->first();
+        $product8 = Product::query()->where('nome_produto', 'Filé Mignon')->first();
 
         ProductImage::create([
             'product_id' => $product8->id,
             'imagem' => 'Products/file-mignon.svg',
         ]);
 
-        $product9 = Product::query()->where('nome', 'Ravióli de Abóbora')->first();
+        $product9 = Product::query()->where('nome_produto', 'Ravióli de Abóbora')->first();
 
         ProductImage::create([
             'product_id' => $product9->id,
             'imagem' => 'Products/ravioli.svg',
         ]);
 
-        $product10 = Product::query()->where('nome', 'Risoto de Cogumelos')->first();
+        $product10 = Product::query()->where('nome_produto', 'Risoto de Cogumelos')->first();
 
         ProductImage::create([
             'product_id' => $product10->id,
             'imagem' => 'Products/risoto.svg',
         ]);
 
-        $product11 = Product::query()->where('nome', 'Coca-Cola')->first();
+        $product11 = Product::query()->where('id', '=',11)->first();
 
         ProductImage::create([
             'product_id' => $product11->id,
             'imagem' => 'Products/coca-cola.svg',
         ]);
 
-        $product12 = Product::query()->where('nome', 'Suco de Laranja')->first();
+        $product12 = Product::query()->where('nome_produto', 'Suco de Laranja')->first();
 
         ProductImage::create([
             'product_id' => $product12->id,
             'imagem' => 'Products/suco.svg',
         ]);
 
-        $product13 = Product::query()->where('nome', 'Água')->first();
+        $product13 = Product::query()->where('nome_produto', 'Água')->first();
 
         ProductImage::create([
             'product_id' => $product13->id,
@@ -119,21 +119,21 @@ class ProductImageSeeder extends Seeder
         /*--------------------------------------------------------------------------------------------------*/
         /*---------------------------------------------Yummy------------------------------------------------*/
 
-        $product14 = Product::query()->where('nome', 'Americano Clássico')->first();
+        $product14 = Product::query()->where('nome_produto', 'Americano Clássico')->first();
 
         ProductImage::create([
             'product_id' => $product14->id,
             'imagem' => 'Products/americano.svg',
         ]);
 
-        $product15 = Product::query()->where('nome', 'Hot Dog Paulista')->first();
+        $product15 = Product::query()->where('nome_produto', 'Hot Dog Paulista')->first();
 
         ProductImage::create([
             'product_id' => $product15->id,
             'imagem' => 'Products/paulista.svg',
         ]);
 
-        $product16 = Product::query()->where('nome', 'Yummy Veg')->first();
+        $product16 = Product::query()->where('nome_produto', 'Yummy Veg')->first();
 
         ProductImage::create([
             'product_id' => $product16->id,
@@ -143,35 +143,35 @@ class ProductImageSeeder extends Seeder
         /*--------------------------------------------------------------------------------------------------*/
         /*-------------------------------------------Borcelle-----------------------------------------------*/
 
-        $product17 = Product::query()->where('nome', 'Batata frita')->first();
+        $product17 = Product::query()->where('id', '=', 17)->first();
 
         ProductImage::create([
             'product_id' => $product17->id,
             'imagem' => 'Products/batata-frita.svg',
         ]);
 
-        $product18 = Product::query()->where('nome', 'Anéis de Cebola')->first();
+        $product18 = Product::query()->where('nome_produto', 'Anéis de Cebola')->first();
 
         ProductImage::create([
             'product_id' => $product18->id,
             'imagem' => 'Products/cebola.svg',
         ]);
 
-        $product19 = Product::query()->where('nome', 'Frango Frito')->first();
+        $product19 = Product::query()->where('nome_produto', 'Frango Frito')->first();
 
         ProductImage::create([
             'product_id' => $product19->id,
             'imagem' => 'Products/frango.svg',
         ]);
 
-        $product20 = Product::query()->where('nome', 'Trio Super Borcelle')->first();
+        $product20 = Product::query()->where('nome_produto', 'Trio Super Borcelle')->first();
 
         ProductImage::create([
             'product_id' => $product20->id,
             'imagem' => 'Products/trio-1.svg',
         ]);
 
-        $product21 = Product::query()->where('nome', 'Trio Famiglia Borcelle')->first();
+        $product21 = Product::query()->where('nome_produto', 'Trio Famiglia Borcelle')->first();
 
         ProductImage::create([
             'product_id' => $product21->id,

@@ -175,69 +175,86 @@
                 </section>
             </section>
 
+            @php
+                $printedPromotionals = []; // Um array para rastrear os valores promocionais já impressos
+            @endphp
+
             @foreach($establishments as $key => $establishment)
                 @foreach($establishment->products()->distinct()->whereNotNull('promocional')->get(['promocional']) as $value)
-                    <section class="container justify-content-center d-flex flex-column">
-                        <section class="container d-flex">
-                            <h4 class="fs-5 fw-bold">{{ $value->promocional }}</h4>
-                        </section>
-                        <section class="container justify-content-center d-flex gap-4 flex-wrap">
-                            @foreach($establishment->products()->where('promocional', $value->promocional)->get() as $product)
-                                    <div class="card rounded-4 shadow h-100" style="width: 332px;">
-                                        <div class="card-body d-flex gap-2 p-2">
-                                            <div>
-                                                <img src="{{ asset('images/'.$establishment->imagem_logo) }}" alt=""
-                                                     class="card-img object-fit-cover border border-secondary rounded-4" style="width: 5.5em;">
-                                            </div>
-                                            <div class="d-flex flex-column gap-2 w-100">
-                                                <div class="d-flex justify-content-between">
-                                                    <h5 class="card-title fw-bold m-0">{{ $establishment->nome }}</h5>
-                                                    <div class="d-flex gap-2">
-                                                        @foreach($establishment->categories as $categoryPivot)
-                                                            <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 1.5em;">
-                                                        @endforeach
-                                                    </div>
+                    @if (!in_array($value->promocional, $printedPromotionals))
+                        <section class="container justify-content-center d-flex flex-column">
+                            <section class="container d-flex">
+                                <h4 class="fs-5 fw-bold">{{ $value->promocional }}</h4>
+                            </section>
+                            @php
+                                $printedPromotionals[] = $value->promocional; // Adicione o valor atual ao array de impressão
+                            @endphp
+
+                            <section class="container justify-content-center d-flex gap-4 flex-wrap">
+                                @foreach($establishments as $key => $establishment)
+                                    @foreach($establishment->products()->where('promocional', $value->promocional)->get() as $product)
+                                        <div class="card rounded-4 shadow h-100" style="width: 332px;">
+                                            <div class="card-body d-flex gap-2 p-2">
+                                                <div>
+                                                    <img src="{{ asset('images/'.$establishment->imagem_logo) }}" alt=""
+                                                         class="card-img object-fit-cover border border-secondary rounded-4" style="width: 5.5em;">
                                                 </div>
-                                                <h5 class="card-subtitle fs-5 text-secondary">{{ $establishment->tipo }}</h5>
-                                            </div>
-                                        </div>
-                                        <div id="carousel{{$key}}" class="carousel slide card-img-top ">
-                                            <div class="carousel-inner">
-                                                @foreach($product->images as $imageProduct)
-                                                    <div class="carousel-item active ">
-                                                        <img src="{{ asset('images/'.$imageProduct->imagem) }}" class="d-block w-100 img-fluid object-fit-cover" alt="..." style="height: 12em;">
+                                                <div class="d-flex flex-column gap-2 w-100">
+                                                    <div class="d-flex justify-content-between">
+                                                        <h5 class="card-title fw-bold m-0">{{ $establishment->nome }}</h5>
+                                                        <div class="d-flex gap-2">
+                                                            @foreach($establishment->categories as $categoryPivot)
+                                                                <img src="{{ asset('images/'.$categoryPivot->category->icone) }}" alt="..." style="width: 1.5em;">
+                                                            @endforeach
+                                                        </div>
                                                     </div>
-                                                @endforeach
+                                                    <h5 class="card-subtitle fs-5 text-secondary">{{ $establishment->tipo }}</h5>
+                                                </div>
+                                            </div>
+                                            <div id="carousel{{$key}}" class="carousel slide card-img-top ">
+                                                <div class="carousel-inner">
+                                                    @foreach($product->images as $imageProduct)
+                                                        <div class="carousel-item active ">
+                                                            <img src="{{ asset('images/'.$imageProduct->imagem) }}" class="d-block w-100 img-fluid object-fit-cover" alt="..." style="height: 12em;">
+                                                        </div>
+                                                    @endforeach
 
 
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
-                                                </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
-                                                </button>
+                                                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button" data-bs-target="#carousel{{$key}}" data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="card-body d-flex justify-content-between align-items-center gap-1 p-2">
+                                                <div class="d-flex justify-content-between w-100">
+                                                    <a href="{{ url('/produto/' . $product->id ) }}" class="text-decoration-none text-dark">
+                                                        <h5 class="card-title fw-bold m-0">{{ $product->nome_produto }}</h5>
+                                                        <p class="m-0">{{$product->tipo}}</p>
+
+                                                    </a>
+                                                    <p class="text-light rounded-2 border-0 px-1 py-1 fs-6 fw-bold m-0" style="background-color: #00A023; height: 32px;">
+                                                        R${{ number_format($product->preco, 2, ',', '.') }}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="card-body d-flex justify-content-between align-items-center gap-1 p-2">
-                                            <div class="d-flex justify-content-between w-100">
-                                                <a href="{{ url('/produto/' . $product->id ) }}" class="text-decoration-none text-dark">
-                                                    <h5 class="card-title fw-bold m-0">{{ $product->nome_produto }}</h5>
-                                                    <p class="m-0">{{$product->tipo}}</p>
-
-                                                </a>
-                                                <p class="text-light rounded-2 border-0 px-1 py-1 fs-6 fw-bold m-0" style="background-color: #00A023; height: 32px;">
-                                                    R${{ number_format($product->preco, 2, ',', '.') }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 @endforeach
+                            </section>
                         </section>
-                    </section>
+                    @endif
                 @endforeach
             @endforeach
+
+
+
+
+
         </main>
         <section class="fixed-bottom d-sm-none container px-5 py-3 d-flex flex-column rounded-top-4 w-100"
                  style="background-color: #131313; margin-bottom: -1px;">

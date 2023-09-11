@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <img src="{{ asset('images/'.$product->establishment->banners()->where('is_destaque', true)->first()->imagem)}}" class="w-100 img-fluid object-fit-cover" alt="Banner do Produto {{$product->nome_produto}}"
+                <img src="{{ asset('images/'.$product->establishment->banners()->where('is_destaque', true)->first()->imagem)}}" class="w-100 img-fluid object-fit-cover" alt="Banner do Restaurante {{$product->establishment->nome}}"
                      style="height: 10rem;">
             </div>
             <div class="d-flex">

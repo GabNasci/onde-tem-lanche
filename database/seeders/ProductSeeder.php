@@ -55,7 +55,7 @@ class ProductSeeder extends Seeder
             'tipo' => 'Tradicionais',
             'promocional' => null,
             'descricao' => 'Sabor inigualável no nosso x-burger: pão fresco, hambúrguer artesanal, alface crocante, molho especial e queijo cheddar derretido. Irresistível! 🍔🧀🥬',
-            'preco' => 23,00
+            'preco' => 23.00
         ]);
 
         Product::create([
@@ -172,14 +172,14 @@ class ProductSeeder extends Seeder
 
         $establishment5 = Establishment::query()->where('id', '=', 5)->first();
 
-        Product::create([
-            'establishment_id' =>$establishment5->id,
-            'nome_produto' => 'Batata frita',
-            'tipo' => 'Porções',
-            'promocional' => null,
-            'descricao' => 'Nossa batata frita vem acompanhada com maionese temperada!',
-            'preco' => 15.00
-        ]);
+//        Product::create([
+//            'establishment_id' =>$establishment5->id,
+//            'nome_produto' => 'Batata frita',
+//            'tipo' => 'Porções',
+//            'promocional' => null,
+//            'descricao' => 'Nossa batata frita vem acompanhada com maionese temperada!',
+//            'preco' => 15.00
+//        ]);
 
         Product::create([
             'establishment_id' =>$establishment5->id,
