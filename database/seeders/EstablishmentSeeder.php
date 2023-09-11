@@ -59,7 +59,7 @@ class EstablishmentSeeder extends Seeder
             'tipo' => 'Restaurante',
             'imagem_logo' => 'Logos/fauget.svg',
             'logradouro' => 'Av. Cândido Mendes',
-            'numero' => '89756',
+            'numero' => '896',
             'complemento' => '',
             'bairro' => 'Centro',
             'cidade_estado' => 'Campo Mourão - PR',
@@ -71,5 +71,44 @@ class EstablishmentSeeder extends Seeder
             'instagram' => 'https://www.instagram.com/integradouniversitario/',
             'facebook' => '',
         ]);
+
+        Establishment::create([
+            'nome' => 'Yummy Hot Dogs',
+            'descricao' => 'Experimente a culinária mediterrânea no Fauget. Com uma variedade de massas artesanais e pratos autênticos, nosso restaurante é o lugar perfeito para uma noite especial ou um jantar em família. Venha saborear sabores autênticos e criativos em um ambiente elegante e acolhedor.',
+            'tipo' => 'Hotdogueria',
+            'imagem_logo' => 'Logos/yummy.svg',
+            'logradouro' => 'Capitão Índio Bandeira',
+            'numero' => '1002',
+            'complemento' => '',
+            'bairro' => 'Centro',
+            'cidade_estado' => 'Campo Mourão - PR',
+            'horario_inicial' => '19:00',
+            'horario_final' => '23:30',
+            'site' => 'https://www.grupointegrado.br/?keyword&creative&gad=1&gclid=Cj0KCQjwgNanBhDUARIsAAeIcAvWtaQhvgZ7-m0KsXpGlDWX3b70iBeX8K-c-3MZ3s2UYcNnudv4SQsaAgdEEALw_wcB',
+            'email' => 'atendimentofauget@gmail.com',
+            'whatsapp' => '44999867563',
+            'instagram' => 'https://www.instagram.com/integradouniversitario/',
+            'facebook' => '',
+        ]);
+
+        Establishment::create([
+            'nome' => 'Borcelle',
+            'descricao' => 'Somos especializados em porções deliciosas e oferecemos uma experiência gastronômica única. Localizado em local charmoso, perfeito para encontros descontraídos com amigos e familiares. Ingredientes frescos garantem sabor máximo. Ambiente moderno e aconchegante, equipe atenciosa e variedade de bebidas.',
+            'tipo' => 'Porções',
+            'imagem_logo' => 'Logos/borcelle.svg',
+            'logradouro' => 'Rua Brasil',
+            'numero' => '692',
+            'complemento' => '',
+            'bairro' => 'Jardim Laura',
+            'cidade_estado' => 'Campo Mourão - PR',
+            'horario_inicial' => '19:00',
+            'horario_final' => '01:00',
+            'site' => 'https://www.grupointegrado.br/?keyword&creative&gad=1&gclid=Cj0KCQjwgNanBhDUARIsAAeIcAvWtaQhvgZ7-m0KsXpGlDWX3b70iBeX8K-c-3MZ3s2UYcNnudv4SQsaAgdEEALw_wcB',
+            'email' => 'atendimentofauget@gmail.com',
+            'whatsapp' => '44999983321',
+            'instagram' => 'https://www.instagram.com/integradouniversitario/',
+            'facebook' => '',
+        ]);
+
     }
 }

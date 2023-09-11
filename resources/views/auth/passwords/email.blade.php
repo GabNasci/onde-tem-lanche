@@ -32,7 +32,7 @@
         </div>
 
         <div>
-            <a href="{{ url('/login') }}"class="fs-6" style="color: #131313;">Voltar para tela de Login</a>
+            <a href="{{ url('/login') }}" class="fs-6" style="color: #131313;">Voltar para tela de Login</a>
         </div>
     </form>
 </main>

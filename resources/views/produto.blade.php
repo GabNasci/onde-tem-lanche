@@ -62,17 +62,17 @@
                                 <h5 class="card-title m-0 fw-bold fs-4">{{$product->establishment->nome}}</h5>
                                 <ul class="d-none list-unstyled d-md-flex p-0 m-0 justify-content-center align-items-end gap-2">
                                     <li>
-                                        <a href="{{$product->establishment->instagram}}" class="text-decoration-none link-dark">
+                                        <a href="{{$product->establishment->instagram}}" target="_blank" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-instagram fs-4"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{$product->establishment->facebook}}" class="text-decoration-none link-dark">
+                                        <a href="{{$product->establishment->facebook}}" target="_blank" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-square-facebook fs-4"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{$product->establishment->whatsapp}}" class="text-decoration-none link-dark">
+                                        <a href="{{ 'https://wa.me/'.$product->establishment->whatsapp }}" target="_blank" class="text-decoration-none link-dark">
                                             <i class="fa-brands fa-whatsapp fs-4"></i>
                                         </a>
                                     </li>
@@ -121,10 +121,6 @@
                         <div class=" d-flex row gap-4 gap-md-4 p-0 px-2 py-2 ">
                             <div class="d-flex gap-2 align-items-center">
                                 <h5 class="m-0 fw-bold fs-2">{{$product->nome_produto}}</h5>
-{{--                                <div class="d-flex gap-2 ">--}}
-{{--                                    <img src="/img/Filters/filtro_pizza.svg" alt="..." style="width: 2em;">--}}
-{{--                                    <img src="/img/Filters/filtro_veg.svg" alt="..." style="width: 2em;">--}}
-{{--                                </div>--}}
                             </div>
                             <div class="">
                                 <p class="fs-5 m-0">{{$product->descricao}}</p>
@@ -135,7 +131,7 @@
                                     R${{ number_format($product->preco, 2, ',', '.') }}
                                 </p>
                                 <a href="{{'https://wa.me/' . $product->establishment->whatsapp}}" target="_blank"
-                                   class="btn btn-outline-success d-flex justify-content-center align-items-center gap-2 px-5 px-md-2"
+                                   class="btn btn-outline d-flex justify-content-center align-items-center gap-2 px-5 px-md-2"
                                    style="border-color:#1B8944 ;">
                                     <i class="fa-brands fa-whatsapp fs-5" style="color: #1B8944;"></i>
                                     <p class="card-text fs-6" style="color: #1B8944;">

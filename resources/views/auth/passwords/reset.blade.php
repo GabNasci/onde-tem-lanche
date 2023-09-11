@@ -66,7 +66,7 @@
             <h1 class="text-center fs-2" style="font-weight: 600; font-family: Montserrat;">Redefinição de Senha</h1>
             <!-- Email input -->
             <div class="form-outline text-center" style="width: 300px;">
-                <label class="form-label" for="form2Example1" style="font-size: large;">Digite o seu e-mail</label>
+                <label class="form-label" for="email" style="font-size: large;">Digite o seu e-mail</label>
                 <input id="email"
                        type="email"
                        name="email"
@@ -85,7 +85,7 @@
 
             <!-- Senha input -->
             <div class="form-outline text-center" style="width: 300px;">
-                <label class="form-label" for="form2Example2" style="font-size: large;">Digite sua nova senha</label>
+                <label class="form-label" for="password" style="font-size: large;">Digite sua nova senha</label>
                 <input id="password"
                        type="password"
                        name="password"
@@ -94,20 +94,30 @@
                        class="form-control @error('password') is-invalid @enderror" style="border: 1px solid #ACACAC;"
                        placeholder="Senha" />
             </div>
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
 
             <div class="form-outline text-center" style="width: 300px;">
-                <label class="form-label" for="form2Example2" style="font-size: large;">Digite-a novamente</label>
-                <input type="password" id="formExample" class="form-control" style="border: 1px solid #ACACAC;"
+                <label class="form-label" for="password-confirm" style="font-size: large;">Digite-a novamente</label>
+                <input id="password-confirm"
+                       type="password"
+                       name="password_confirmation"
+                       required
+                       autocomplete="new-password"
+                       class="form-control" style="border: 1px solid #ACACAC;"
                        placeholder="Confirme sua senha" />
             </div>
 
             <!-- Botão de Login -->
             <div class="d-flex flex-column justify-content-center align-items-center">
-                <button type="button" class="btn btn-primary btn-block mt-4" style="width: 180px;">Alterar sua senha</button>
+                <button type="submit" class="btn btn-primary btn-block mt-4" style="width: 180px;">Alterar sua senha</button>
             </div>
             <!-- voltar para tela inicial -->
             <div class="mt-2">
-                <a href="login.html"class="fs-6" style="color: #131313;">Voltar para tela inicial</a>
+                <a href="{{ url('/login') }}" class="fs-6" style="color: #131313;">Voltar para tela inicial</a>
             </div>
 
 

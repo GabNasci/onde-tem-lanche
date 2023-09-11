@@ -59,7 +59,7 @@
                 <a href="{{route('mapa')}}" class="btn w-100">Mapa</a>
             </section>
 
-            <section class=" container d    -flex align-items-center gap-2">
+            <section class=" container d-flex align-items-center gap-2">
                 <h4 class="px-2 fw-bold m-0"
                     style="background-color: #EA9F30; font-family: 'destaque'; min-width: fit-content;">Restaurantes</h4>
                 <hr class="border border-3 opacity-100 w-100" style="color: #707070;">
@@ -169,13 +169,13 @@
                 <a class="text-decoration-none p-0 m-0" href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">
                     <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
                 </a>
-                <p>Indicação</p>
+                <p class="fs-6 m-0" style="color: #FFFFFF; font-family: 'destaque';">Indicação</p>
             </div>
             <div>
                 <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
                    href="{{ url('/busca') }}">
                     <img src="{{asset('images/Icons/Pesquisa-active.svg')}}" alt="">
-                    <p class="fs-6 m-0" style="color: #EA9F30;">Busca</p>
+                    <p class="fs-5 m-0" style="color: #EA9F30;">Busca</p>
                 </a>
             </div>
         </div>

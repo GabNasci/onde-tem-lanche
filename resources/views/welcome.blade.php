@@ -185,7 +185,7 @@
                         </section>
                         <section class="container justify-content-center d-flex gap-4 flex-wrap">
                             @foreach($establishment->products()->where('promocional', $value->promocional)->get() as $product)
-                                    <div class="card rounded-4 shadow h-100" style="min-width: 398px;">
+                                    <div class="card rounded-4 shadow h-100" style="width: 332px;">
                                         <div class="card-body d-flex gap-2 p-2">
                                             <div>
                                                 <img src="{{ asset('images/'.$establishment->imagem_logo) }}" alt=""
@@ -267,13 +267,13 @@
                     <a class="text-decoration-none p-0 m-0" href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">
                         <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
                     </a>
-                    <p>Indicação</p>
+                    <p class="fs-6 m-0" style="color: #FFFFFF; font-family: 'destaque';">Indicação</p>
                 </div>
                 <div>
                     <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
                        href="{{ url('/busca') }}">
                         <img src="{{asset('images/Icons/Pesquisa.svg')}}" alt="">
-                        <p class="fs-6 m-0" style="color: #FFFFFF;">Busca</p>
+                        <p class="fs-5 m-0" style="color: #FFFFFF;">Busca</p>
                     </a>
                 </div>
             </div>

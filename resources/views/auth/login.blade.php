@@ -10,7 +10,7 @@
         <h1 class="text-center fs-2 fw-bold m-0">Acesse sua conta.</h1>
 
         <div class="form-outline text-center" style="width: 300px;">
-            <label class="form-label fs-5" for="form2Example1">Insira seu E-mail</label>
+            <label class="form-label fs-5" for="email">Insira seu E-mail</label>
             <input id="email"
                    type="email"
                    placeholder="E-mail"
@@ -23,7 +23,7 @@
 
 
         <div class="form-outline text-center" style="width: 300px;">
-            <label class="form-label fs-5" for="form2Example2">Insira sua Senha</label>
+            <label class="form-label fs-5" for="password">Insira sua Senha</label>
             <input id="password"
                    type="password"
                    placeholder="Digite sua senha"

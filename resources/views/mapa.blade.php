@@ -8,8 +8,8 @@
     <section class="container d-flex flex-column gap-2">
 
         <section class=" d-flex d-md-none justify-content-center w-100">
-            <a href="busca.html" class="btn w-100">Lista</a>
-            <a href="mapa.html" class="btn active w-100">Mapa</a>
+            <a href="{{route('busca')}}" class="btn w-100">Lista</a>
+            <a href="{{route('busca')}}" class="btn active w-100">Mapa</a>
         </section>
 
 
@@ -27,11 +27,7 @@
 
         <section class="container d-flex flex-column justify-content-center gap-4">
 
-            <div id="style-selector-control" class="map-control d-none">
-                <select id="style-selector" class="selector-control">
-                    <option value="hiding" selected="selected">Hide features</option>
-                </select>
-            </div>
+
 
             <div id="map"></div>
 
@@ -62,13 +58,13 @@
             <a class="text-decoration-none p-0 m-0" href="{{ url('/estabelecimentos/' . $idEstabelecimentoAleatorio ) }}">
                 <img src="{{asset('images/Icons/Indicacao.svg')}}" alt="" style="width: 80px;">
             </a>
-            <p>Indicação</p>
+            <p class="fs-6 m-0" style="color: #FFFFFF; font-family: 'destaque';">Indicação</p>
         </div>
         <div>
             <a class="text-decoration-none p-0 m-0 d-flex flex-column justify-content-center align-items-center"
                href="{{ url('/busca') }}">
                 <img src="{{asset('images/Icons/Pesquisa-active.svg')}}" alt="">
-                <p class="fs-6 m-0" style="color: #EA9F30;">Busca</p>
+                <p class="fs-5 m-0" style="color: #EA9F30;">Busca</p>
             </a>
         </div>
     </div>
