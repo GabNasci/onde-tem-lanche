@@ -10,7 +10,7 @@
             <div class="container d-flex justify-content-center flex-column gap-3 align-items-center">
                 <h1 class="text-center fs-2 fw-bold">Meu perfil</h1>
                 <div class="d-flex flex-column justify-content-center align-items-center gap-1">
-                    <img class="rounded-circle img-fluid object-fit-cover" src="{{ isset($user->avatar) ? 'images/' . $user->avatar : 'images/' . asset('Avatars/avatar.png')  }}"
+                    <img class="rounded-circle img-fluid object-fit-cover" src="{{ isset($user->avatar) ? 'images/' . $user->avatar : asset('images/Avatars/avatar.png')  }}"
                          style="height: 154px; width: 154px;" alt="foto de perfil do usuário">
                 </div>
                 <?php
@@ -96,6 +96,8 @@
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary">Salvar</button>
                             </div>
+
+                            
                             </form>
                         </div>
                     </div>

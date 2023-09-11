@@ -165,21 +165,21 @@ class ProductSeeder extends Seeder
             'establishment_id' =>$establishment4->id,
             'nome_produto' => 'Yummy Veg',
             'tipo'=> 'Especiais da casa',
-            'promocional' => 'Em promoção!',
+            'promocional' => null,
             'descricao' => 'Explore o Yummy Veg: pão caseiro, Salsicha da Fazenda Futuro, molho de queijo vegano, picles de cebola roxa, vinagrete de tomates, batata-palha, mostarda e ketchup. Uma explosão de sabores veganos! 🌱🌭🍅',
             'preco' => 29.00
         ]);
 
         $establishment5 = Establishment::query()->where('id', '=', 5)->first();
 
-//        Product::create([
-//            'establishment_id' =>$establishment5->id,
-//            'nome_produto' => 'Batata frita',
-//            'tipo' => 'Porções',
-//            'promocional' => null,
-//            'descricao' => 'Nossa batata frita vem acompanhada com maionese temperada!',
-//            'preco' => 15.00
-//        ]);
+        Product::create([
+            'establishment_id' =>$establishment5->id,
+            'nome_produto' => 'Batata frita',
+            'tipo' => 'Porções',
+            'promocional' => null,
+            'descricao' => 'Nossa batata frita vem acompanhada com maionese temperada!',
+            'preco' => 15.00
+        ]);
 
         Product::create([
             'establishment_id' =>$establishment5->id,
